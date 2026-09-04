@@ -1,0 +1,22 @@
+# 個人情報 (予約番号・航空券番号・金額) — 絶対にコミットしない
+private.json
+# ローカル生成物
+dist/
+imgs/
+qa*.png
+qa*.html
+qa_*.py
+sheet*.png
+low_*.png
+*.credited*.html
+*.output
+yj.txt
+__pycache__/
+credits.py
+split_private.py
+cmp.py
+geo.py
+ov.py
+sheet*.py
+crop.py
+extra*.json

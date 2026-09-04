@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<!--meta
+{ "title":"与論島ガイドブック 2026-09-05〜07", "date":"2026-09-04", "category":"旅行", "summary":"羽田→那覇→与論の 2 泊 3 日 (8 人グループ) のための実旅程つきガイド。台風24号の判定手順・潮汐と百合ヶ浜・プリシア・島の歴史と観光情勢・名物・持ち物・欠航時の手続きまで", "features":["photos","map","timeline","checklist"] }
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>与論島ガイドブック 2026-09-05〜07 — 台風・潮・島の歩き方</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=BIZ+UDPGothic:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== TOKEN CONTRACT (aspect: 島の航海日誌 / tide-almanac) ===== */
+  :root{
+    --bg:#F5F0E6; --panel:#FDFBF6; --ink:#1B2732; --soft:#3A4652; --muted:#6F7B86;
+    --line:#E2DACB; --line2:#C9BFAA; --accent:#0F8B8D; --accent-ink:#FFFFFF;
+    --sea:#BFE3E4; --sand:#EADFC6; --night:#1B2732;
+    --maxw:780px; --wide:1120px;
+    --sans:"BIZ UDPGothic","BIZ UDGothic","Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+    --serif:"Shippori Mincho","Yu Mincho","Hiragino Mincho ProN","MS PMincho",serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,"BIZ UDGothic","Meiryo",monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+  body{font-family:var(--sans); background:var(--bg); color:var(--soft); line-height:1.9; font-size:16px; font-feature-settings:"palt" 1; padding:0 20px 120px;}
+  ::selection{background:var(--accent); color:var(--accent-ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto;}
+  .wide{max-width:var(--wide); margin-inline:auto;}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  h1{font-family:var(--serif); font-weight:800; color:var(--ink); font-size:clamp(34px,6.4vw,60px); line-height:1.12; letter-spacing:-.01em; margin:0 0 .35em;}
+  h2{font-family:var(--serif); font-weight:700; color:var(--ink); font-size:clamp(24px,3.6vw,34px); line-height:1.25; margin:0 0 .5em;}
+  h3{font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.2rem; margin:1.8em 0 .5em; letter-spacing:.01em;}
+  h4{font-weight:700; color:var(--ink); font-size:1rem; margin:1.2em 0 .3em;}
+  p{margin:0 0 1em;}
+  b,strong{color:var(--ink); font-weight:700;}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent);}
+  .muted{color:var(--muted);}
+  code{font-family:var(--mono); font-size:.86em; background:color-mix(in srgb,var(--accent) 8%,var(--bg)); color:var(--accent); padding:1px 6px; border-radius:3px; border:1px solid var(--line);}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:500;}
+  .sub{color:var(--muted); font-size:clamp(15px,2.1vw,19px); line-height:1.75; margin:0 0 1.2em; max-width:62ch;}
+  .reader{font-size:.92rem; color:var(--muted); border-top:1px solid var(--line2); border-bottom:1px solid var(--line2); padding:10px 0; margin:1.2em 0 1.6em; font-family:var(--mono); line-height:1.7;}
+
+  .section{margin-top:3.6em;}
+  .sec-head{display:flex; gap:14px; align-items:baseline; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:1.2em;}
+  .sec-head .n{font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600; flex-shrink:0; letter-spacing:.08em;}
+  .sec-head .lv{margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.1em; white-space:nowrap;}
+
+  /* ---- warning block (typhoon) : ink-inverted, single accent ---- */
+  .storm{background:var(--night); color:var(--bg); border-radius:6px; padding:22px 26px; margin:1.6em 0; position:relative; overflow:hidden;}
+  .storm .t{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--sea); margin-bottom:8px;}
+  .storm p{color:inherit; margin:0 0 .6em;}
+  .storm b{color:#fff;}
+  .storm table{font-size:.9rem; margin:.8em 0 .4em;}
+  .storm th,.storm td{border-bottom:1px solid color-mix(in srgb,var(--bg) 22%,transparent); color:inherit; padding:8px 10px;}
+  .storm thead th{color:var(--sea);}
+  .storm a{color:var(--sea); border-bottom-color:color-mix(in srgb,var(--sea) 50%,transparent);}
+
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1px; background:var(--line2); border:1px solid var(--line2); border-radius:6px; overflow:hidden; margin:1.6em 0;}
+  .stat{background:var(--panel); padding:16px 14px;}
+  .stat .v{font-family:var(--mono); font-weight:600; font-size:20px; color:var(--ink); line-height:1.15;}
+  .stat .k{font-size:11.5px; color:var(--muted); margin-top:7px; line-height:1.45;}
+
+  table{width:100%; border-collapse:collapse; margin:1.2em 0; font-size:.93rem;}
+  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--line2);}
+  td.num,th.num{font-family:var(--mono); white-space:nowrap;}
+  .tbl-wrap{overflow-x:auto;}
+
+  figure{margin:1.6em 0;}
+  figure.diagram{border:1px solid var(--line2); border-radius:6px; padding:18px 20px; background:var(--panel);}
+  figure svg{display:block; width:100%; height:auto;}
+  figcaption{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:10px; line-height:1.65;}
+  figure.photo img{width:100%; height:auto; display:block; border-radius:4px; background:var(--sand);}
+  figure.photo figcaption{text-align:left;}
+  .photos{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:1.4em 0;}
+  .photos figure{margin:0;}
+  .photos.two{grid-template-columns:1fr 1fr;}
+  .credit{font-size:10.5px; color:var(--muted); opacity:.85;}
+  .hero-photo{margin:1.4em 0 .4em;}
+  .hero-photo img{width:100%; height:auto; display:block; border-radius:6px;}
+
+  .callout{border:1px solid var(--line2); border-radius:6px; padding:14px 18px; margin:1.2em 0; background:color-mix(in srgb,var(--accent) 7%,var(--bg));}
+  .callout .t{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:5px;}
+  .tag{display:inline-flex; align-items:center; font-family:var(--mono); font-size:11px; letter-spacing:.04em; padding:2px 8px; border-radius:2px; border:1px solid var(--line2); color:var(--muted); margin-right:4px; vertical-align:middle;}
+  .tag.accent{color:var(--accent); border-color:color-mix(in srgb,var(--accent) 45%,transparent); background:color-mix(in srgb,var(--accent) 8%,var(--bg));}
+  ul.clean{list-style:none; margin:.3em 0 1em;}
+  ul.clean li{position:relative; padding:4px 0 4px 22px;}
+  ul.clean li::before{content:"›"; position:absolute; left:2px; color:var(--accent); font-family:var(--mono); font-weight:700;}
+  ol.steps{list-style:none; counter-reset:s; margin:.4em 0 1.2em;}
+  ol.steps li{position:relative; padding:8px 0 8px 46px; border-bottom:1px dashed var(--line);}
+  ol.steps li::before{counter-increment:s; content:counter(s,decimal-leading-zero); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:600; letter-spacing:.05em;}
+
+  /* ---- spot cards (色分けレーン) ---- */
+  .spots{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:1.2em 0;}
+  .spot{background:var(--panel); border:1px solid var(--line2); border-radius:6px; overflow:hidden; display:flex; flex-direction:column;}
+  .spot img{width:100%; aspect-ratio:3/2; object-fit:cover; display:block; background:var(--sand);}
+  .spot .body{padding:12px 16px 16px;}
+  .spot .name{font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.08rem; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+  .spot .meta{font-family:var(--mono); font-size:11px; color:var(--muted); margin:2px 0 8px; letter-spacing:.03em;}
+  .spot p{font-size:.92rem; margin:0 0 .5em;}
+  .spot .no-photo{aspect-ratio:3/2; background:linear-gradient(135deg,var(--sand),var(--sea)); display:flex; align-items:center; justify-content:center; font-family:var(--serif); color:var(--ink); font-size:1.3rem; letter-spacing:.1em;}
+  .rain{display:inline-block; font-family:var(--mono); font-size:10.5px; padding:1px 7px; border-radius:2px; background:var(--ink); color:var(--bg); letter-spacing:.06em;}
+  .rain.no{background:transparent; color:var(--muted); border:1px solid var(--line2);}
+
+  /* ---- day plan (ステッパー) ---- */
+  .plan{border:1px solid var(--line2); border-radius:6px; background:var(--panel); margin:1.2em 0; overflow:hidden;}
+  .plan .head{display:flex; align-items:baseline; gap:12px; padding:12px 18px; border-bottom:1px solid var(--line2); background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
+  .plan .head b{font-family:var(--serif); font-size:1.1rem;}
+  .plan .head span{font-family:var(--mono); font-size:11px; color:var(--muted);}
+  .plan .row{display:grid; grid-template-columns:78px 1fr; gap:12px; padding:9px 18px; border-bottom:1px dashed var(--line); font-size:.94rem;}
+  .plan .row:last-child{border-bottom:0;}
+  .plan .row .t{font-family:var(--mono); color:var(--accent); font-weight:600; font-size:.88rem; padding-top:2px;}
+  .plan .row .note{color:var(--muted); font-size:.86rem;}
+
+  /* ---- checklist ---- */
+  .check{columns:2; column-gap:28px; margin:.6em 0 1em;}
+  .check h4{break-after:avoid; margin:.8em 0 .3em; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
+  .check label{display:flex; gap:9px; align-items:flex-start; padding:4px 0; break-inside:avoid; font-size:.93rem; cursor:pointer;}
+  .check input{margin-top:5px; accent-color:var(--accent); flex-shrink:0;}
+  .check label.done{color:var(--muted); text-decoration:line-through;}
+  .check .why{color:var(--muted); font-size:.82rem;}
+
+  details{border:1px solid var(--line); border-radius:6px; padding:0 18px; margin:1.2em 0; background:var(--panel);}
+  details[open]{padding-bottom:16px;}
+  summary{font-family:var(--mono); font-size:12.5px; color:var(--muted); cursor:pointer; padding:12px 0; list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"▸  "; color:var(--accent);}
+  summary:hover{color:var(--ink);}
+  details[open] summary{color:var(--ink); border-bottom:1px solid var(--line); margin-bottom:14px;}
+  details[open] summary::before{content:"▾  ";}
+  sup.cite{line-height:0;}
+  sup.cite a{font-family:var(--mono); font-size:11px; color:var(--accent); border-bottom:0; padding:0 2px;}
+  ol.sources{margin:.4em 0 1em 1.4em; font-size:.86rem; color:var(--muted); line-height:1.7;}
+  ol.sources li{padding:2px 0;}
+  .colophon{margin-top:4em; padding-top:14px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:var(--muted);}
+
+  .nav-toc{display:flex; flex-wrap:wrap; gap:8px; margin:1.2em 0;}
+  .nav-toc a{font-family:var(--mono); font-size:12px; color:var(--muted); border:1px solid var(--line); padding:5px 11px; border-radius:3px; background:var(--panel);}
+  .nav-toc a:hover{border-color:var(--ink); color:var(--ink);}
+  @media(min-width:1100px){
+    .has-side-toc{display:grid; grid-template-columns:1fr 220px; gap:48px; max-width:var(--wide); margin:0 auto;}
+    .side-toc{position:sticky; top:28px; align-self:start; font-family:var(--mono); font-size:12px; max-height:calc(100vh - 56px); overflow:auto; padding-right:6px;}
+    .side-toc .t{font-size:10px; letter-spacing:.2em; color:var(--muted); margin-bottom:8px;}
+    .side-toc a{display:block; padding:4px 0 4px 10px; color:var(--muted); border-left:2px solid transparent; border-bottom:0; line-height:1.5;}
+    .side-toc a:hover,.side-toc a.active{color:var(--ink); border-left-color:var(--accent);}
+    .nav-toc{display:none;}
+  }
+  .export-bar{display:flex; gap:8px; flex-wrap:wrap; padding:12px 0 0;}
+  .export-btn{background:var(--accent); color:var(--accent-ink); border:0; border-radius:4px; padding:8px 16px; font-size:13px; font-family:var(--mono); cursor:pointer;}
+  .export-btn.copied{filter:brightness(.82);}
+  pre.plain{font-family:var(--mono); font-size:.86rem; background:var(--panel); border:1px solid var(--line2); border-radius:6px; padding:14px 16px; white-space:pre-wrap; line-height:1.7; color:var(--ink);}
+
+  @media(max-width:700px){
+    body{padding:0 14px 80px;}
+    .grid-2,.grid-3,.spots,.photos,.photos.two{grid-template-columns:1fr;}
+    .check{columns:1;}
+    .plan .row{grid-template-columns:64px 1fr;}
+  }
+</style>
+</head>
+<body>
+<!-- ASPECT
+     aspect   : 島の航海日誌 (tide-almanac) — 砂色の紙に、潮と光と便を 1 本の帯で描く旅の手帳
+     fonts    : Shippori Mincho (見出し) / BIZ UDPGothic (本文・Windows 小サイズで堅い) / IBM Plex Mono (時刻・番号・ラベル)
+     dominant : 砂色の紙 --bg #F5F0E6 + 深海の墨 --ink #1B2732   accent: ラグーンの青緑 --accent #0F8B8D
+     layout   : 図を主役 (3 日間の潮・光・便のタイムライン / 島の略図) + 写真は 2〜3 列グリッド + 日程はステッパー
+     signature: 「3 日間の潮汐・日照・フライト」を 1 枚に重ねたタイムライン図 (§02)。台風ブロックだけ墨で反転
+-->
+<div class="has-side-toc">
+<div class="wrap">
+
+  <div class="eyebrow">Yoron Island · 2026-09-05 → 09-07 · 8 名グループ</div>
+  <h1>与論島ガイドブック<br><span style="font-size:.62em;font-weight:700;color:var(--accent)">台風・潮・島の歩き方</span></h1>
+  <p class="sub">羽田→那覇→与論の 2 泊 3 日。Gmail の予約 (JAL・Trip.com) と観光協会・気象・潮汐の一次情報から組んだ、この旅程専用の手帳。</p>
+  <div class="reader">読者: {{PV:p01|9/5〜9/7 に与論島へ行く 8 人}}。飛行機と宿は押さえてあり、島は初めて。読み終えると「台風で飛ぶか飛ばないかを自分で判定」「潮を見て百合ヶ浜に賭けるか決める」「8 人での移動・食事・BBQ の段取り」ができる。<br>通読 約 50 分 (約 2.4 万字)。急ぐなら §01 → §02 → §07 → §12 → §14 だけで旅は回る。</div>
+
+  <figure class="photo hero-photo">{{IMG:island_2008}}<figcaption>与論島の全景。周囲 23.7km、最高点 97m。島の外側をぐるりと囲む淡い帯がサンゴ礁 (リーフ) で、その内側の浅い海が「ヨロンブルー」<sup class="cite"><a href="#s14">14</a></sup>。{{CREDIT:island_2008}}</figcaption></figure>
+
+  <!-- ============ TYPHOON BLOCK ============ -->
+  <div class="storm" id="storm">
+    <div class="t">先に読む — 台風24号 (クロヴァン) が往路当日に那覇付近にいる</div>
+    <p>9/4 18:45 発表の予報では、台風24号は <b>9/5 18 時に久米島の北北西 約 50km</b>、9/6 15 時に沖縄の南、9/7 15 時に南大東島近海、9/8 に熱帯低気圧へ<sup class="cite"><a href="#s3">3</a></sup>。中心気圧 992hPa・最大風速 18m/s と勢力は弱いが、<b>時速 15km で迷走している</b>ので位置が読みにくい。往路の那覇乗継 (RAC815 13:15 発) が一番危ない。</p>
+    <table>
+      <thead><tr><th>時刻</th><th>台風の予想位置</th><th>旅程との関係</th></tr></thead>
+      <tbody>
+        <tr><td class="num">9/5 18:00</td><td>久米島の北北西 約50km (994hPa)</td><td><b>JAL907 那覇着 11:15・RAC815 那覇発 13:15</b> と重なる</td></tr>
+        <tr><td class="num">9/6 15:00</td><td>沖縄の南</td><td>与論は雨のち曇・降水 80%<sup class="cite"><a href="#s4">4</a></sup></td></tr>
+        <tr><td class="num">9/7 15:00</td><td>南大東島近海</td><td>RAC816 14:25・JAL916 17:45 は影響 小〜中</td></tr>
+        <tr><td class="num">9/8 15:00</td><td>日本の南で熱帯低気圧に</td><td>延泊になっても 9/8 は動ける見込み</td></tr>
+      </tbody>
+    </table>
+    <p>判定の手順は §01 に置いた。宿{{PV:p02|}}は 8/21 以降払戻不可<sup class="cite"><a href="#s2">2</a></sup>なので、<b>飛ぶなら行く</b>が基本線。飛ばない時の手続きは §13。</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="v">08:40 → 13:55</div><div class="k">9/5 羽田発 → 与論着 (那覇乗継 2h)</div></div>
+    <div class="stat"><div class="v">14:25 → 20:15</div><div class="k">9/7 与論発 → 羽田着 (那覇 2h45)</div></div>
+    <div class="stat"><div class="v">2 泊 / 朝食付</div><div class="k">プリシアリゾートヨロン (空港から車 3 分)</div></div>
+    <div class="stat"><div class="v">△ △ △</div><div class="k">百合ヶ浜の出現予測 9/5・9/6・9/7 (小潮〜若潮)</div></div>
+    <div class="stat"><div class="v">31℃ / 27℃</div><div class="k">最高 / 最低。9/5 雨 90%・9/6 雨のち曇・9/7 曇 30%</div></div>
+  </div>
+
+  <nav class="nav-toc">
+    <a href="#s01">01 出発前</a><a href="#s02">02 移動</a><a href="#s03">03 島の概要</a><a href="#s04">04 歴史</a><a href="#s05">05 観光情勢</a><a href="#s06">06 プリシア</a><a href="#s07">07 3 日間プラン</a><a href="#s08">08 スポット</a><a href="#s09">09 名物と食</a><a href="#s10">10 海と安全</a><a href="#s11">11 島の実務</a><a href="#s12">12 持ち物</a><a href="#s13">13 もしもの時</a><a href="#s14">14 予約まとめ</a>
+  </nav>
+
+  <!-- ============ 01 ============ -->
+  <section class="section" id="s01">
+    <div class="sec-head"><span class="n">01</span><h2>出発前チェック — 9/4 夜と 9/5 朝にやること</h2><span class="lv">必読 · 10 分</span></div>
+    <p><b>結論: 明朝 6 時に JAL の運航状況ページを見て、便名の横に「*」か「!」が付いていたら、その場で「行く / 振り替える」を決める。</b>付いていなければ普通に出発する。</p>
+    <h3>台風判定の手順</h3>
+    <ol class="steps">
+      <li><b>9/4 夜</b> — <a href="https://tenki.jp/bousai/typhoon/2624/">tenki.jp 台風24号</a> で 21 時発表の進路を見る。9/5 昼の予想位置が「久米島〜沖縄本島の西」なら那覇は強風域に入る。</li>
+      <li><b>9/5 06:00</b> — <a href="https://www.jal.co.jp/jp/ja/dom/serviceinfo/">JAL 運航状況 (国内線)</a> で JL907 (羽田→那覇) と NU815 (那覇→与論。JAL 予約上は RAC815) を検索。便名の横の <b>「*」= 悪天候で影響の可能性、「!」= 欠航・遅延の決定</b>。この印が出ていれば、実際に飛んでも手数料なしで変更・払戻ができる対象になる<sup class="cite"><a href="#s9">9</a></sup>。</li>
+      <li><b>印が無い</b> → 通常どおり出発。JL907 は満席で機内収納が足りないと JAL からメールが来ている<sup class="cite"><a href="#s1">1</a></sup>ので、スーツケースは羽田で預ける。</li>
+      <li><b>「*」だけ</b> → 出発はする。那覇で RAC が飛ばなかった場合の動きを §13 で確認しておく (那覇で 1 泊 → 9/6 便に振替が最有力)。</li>
+      <li><b>「!」で欠航確定</b> → JAL アプリか Web で同日の別便へ振替。RAC の那覇→与論は 1 日 1 往復<sup class="cite"><a href="#s40">40</a></sup>なので、実質は翌日便への振替か、鹿児島経由 (JAL 鹿児島→与論) への組み替え。</li>
+    </ol>
+    <div class="callout"><div class="t">なぜ那覇乗継が一番危ないか</div>Q400 という 50 席のプロペラ機は横風制限がジェットより厳しく、那覇と与論のどちらかが強風なら止まる。台風の予想位置 (9/5 18 時に久米島の北北西) は那覇の西 100〜150km で、進行が遅いぶん昼の時点でも那覇は雨と風の中にある可能性が高い。一方で勢力は最大風速 18m/s と「台風としては最弱級」なので、欠航ではなく遅延で済む目もある。</div>
+    <h3>手荷物 — 2 便で規定が違う</h3>
+    <p>JL907 は 100 席以上の機材で機内持ち込みは 3 辺の和 115cm (55×40×25cm)・10kg まで。RAC の Q400CC は <b>100 席未満なので 100cm (45×35×20cm)・10kg</b> になり、<b>乗継を含む全区間に小さい方の規定が適用される</b><sup class="cite"><a href="#s13">13</a></sup>。持ち込みは「身の回り品 1 個 + 手荷物 1 個」の計 2 個まで<sup class="cite"><a href="#s12">12</a></sup>。機内持ち込みサイズのキャリーでも、Q400 の棚は浅いので結局ゲートで預けることが多い。</p>
+    <ul class="clean">
+      <li><b>羽田の締切</b>: 手荷物預け 30 分前 (08:10)、保安検査 20 分前 (08:20)、搭乗口 10 分前 (08:30)。9/1 から締切が早まった<sup class="cite"><a href="#s1">1</a></sup>。</li>
+      <li><b>モバイルバッテリー</b>は預け不可・機内持ち込み。座席上の棚に入れず手元に (JAL の 2025 年以降の運用)。</li>
+      <li><b>荷物はスルー</b>: 通し予約{{PV:p03|}}なので羽田で預けた荷物は与論まで届く<sup class="cite"><a href="#s40">40</a></sup>。那覇で受け取り直す必要はない。</li>
+      <li><b>搭乗</b>: JAL アプリの 2 次元バーコードか、航空券番号 (§14) で自動チェックイン機。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 02 ============ -->
+  <section class="section" id="s02">
+    <div class="sec-head"><span class="n">02</span><h2>移動の全行程 — 潮と光と便を 1 枚に</h2><span class="lv">必読 · 8 分</span></div>
+    <p>この図が本書の芯。<b>上の帯が日照 (日の出 6:06 / 日の入 18:43)、曲線が潮位、点が百合ヶ浜の予測干潮、箱がフライトと決まっている予定</b>。3 日とも夕方以降は月が出ていない (月齢 23〜25) ので、晴れれば星が見える<sup class="cite"><a href="#s7">7</a></sup><sup class="cite"><a href="#s8">8</a></sup>。</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, Consolas, monospace">
+        <defs>
+          <linearGradient id="day" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F3E6B8"/><stop offset="1" stop-color="#F3E6B8" stop-opacity="0.35"/></linearGradient>
+        </defs>
+        <!-- hour axis -->
+        <g font-size="11" fill="#6F7B86">
+          <line x1="90" y1="26" x2="990" y2="26" stroke="#C9BFAA"/>
+          <text x="90" y="18">0時</text><text x="315" y="18">6</text><text x="540" y="18">12</text><text x="765" y="18">18</text><text x="975" y="18">24</text>
+          <line x1="315" y1="22" x2="315" y2="30" stroke="#C9BFAA"/><line x1="540" y1="22" x2="540" y2="30" stroke="#C9BFAA"/><line x1="765" y1="22" x2="765" y2="30" stroke="#C9BFAA"/>
+        </g>
+        <!-- rows: y0 = 40 / 180 / 320 ; height 120 ; tide baseline: 40cm→bottom(y0+95), 180cm→top(y0+15) => y = y0+95 - (cm-40)*80/140 -->
+        <!-- daylight bands 6:06-18:43 : x = 90 + h*37.5 -->
+        <g>
+          <rect x="318.8" y="40" width="473" height="118" fill="url(#day)"/>
+          <rect x="318.8" y="180" width="473" height="118" fill="url(#day)"/>
+          <rect x="318.8" y="320" width="473" height="118" fill="url(#day)"/>
+          <!-- moonless evening 19:00-24:00 -->
+          <rect x="802" y="40" width="188" height="118" fill="#1B2732" opacity="0.07"/>
+          <rect x="802" y="180" width="188" height="118" fill="#1B2732" opacity="0.07"/>
+          <rect x="802" y="320" width="188" height="118" fill="#1B2732" opacity="0.07"/>
+        </g>
+        <!-- row labels -->
+        <g font-size="13" font-weight="600" fill="#1B2732">
+          <text x="10" y="70">9/5 土</text><text x="10" y="88" font-size="10" fill="#6F7B86" font-weight="400">小潮</text>
+          <text x="10" y="210">9/6 日</text><text x="10" y="228" font-size="10" fill="#6F7B86" font-weight="400">長潮</text>
+          <text x="10" y="350">9/7 月</text><text x="10" y="368" font-size="10" fill="#6F7B86" font-weight="400">若潮</text>
+        </g>
+        <!-- row separators -->
+        <line x1="90" y1="160" x2="990" y2="160" stroke="#E2DACB"/><line x1="90" y1="300" x2="990" y2="300" stroke="#E2DACB"/><line x1="90" y1="440" x2="990" y2="440" stroke="#E2DACB"/>
+        <!-- TIDE CURVES  (x=90+h*37.5, y=y0+95-(cm-40)*0.571) -->
+        <!-- 9/5: (0,150)->(6.98,66)->(14.65,140)->(18.65,130)->(24,163) y0=40 -->
+        <path d="M90,72 C190,72 215,120 351.8,120 S550,78 639.4,78 S700,84 789.4,84 S900,64 990,64" fill="none" stroke="#0F8B8D" stroke-width="2.4"/>
+        <!-- 9/6: (0.65,163)->(8.82,64)->(16.5,151)->(21.32,129)->(24,150) y0=180 -->
+        <path d="M90,205 C110,204 114,204 114.4,204.7 C230,205 300,261 420.8,261 S650,211.6 708.8,211.6 S840,224 889.5,224 S960,212 990,212" fill="none" stroke="#0F8B8D" stroke-width="2.4"/>
+        <!-- 9/7: (0,150)->(2.82,162)->(10.17,54)->(17.32,165)->(22.67,114)->(24,130) y0=320 -->
+        <path d="M90,352 C130,347 160,345.3 195.6,345.3 C300,345 360,407 471.3,407 S640,343.6 739.4,343.6 S870,372.8 940,372.8 S970,364 990,364" fill="none" stroke="#0F8B8D" stroke-width="2.4"/>
+        <!-- tide extreme labels -->
+        <g font-size="10" fill="#0F8B8D">
+          <text x="330" y="134">干 6:59 66cm</text><text x="600" y="72">満 14:39 140</text>
+          <text x="400" y="275">干 8:49 64cm</text><text x="680" y="206">満 16:30 151</text>
+          <text x="450" y="421">干 10:10 54cm</text><text x="700" y="338">満 17:19 165</text>
+        </g>
+        <!-- Yurigahama predicted windows (観光協会) -->
+        <g>
+          <circle cx="660" cy="80" r="6" fill="#F5F0E6" stroke="#1B2732" stroke-width="2"/><text x="670" y="98" font-size="10" fill="#1B2732">△ 百合ヶ浜 15:12</text>
+          <circle cx="406" cy="258" r="6" fill="#F5F0E6" stroke="#1B2732" stroke-width="2"/><text x="300" y="248" font-size="10" fill="#1B2732">△ 百合ヶ浜 8:26</text>
+          <circle cx="456" cy="404" r="6" fill="#F5F0E6" stroke="#1B2732" stroke-width="2"/><text x="340" y="395" font-size="10" fill="#1B2732">△ 百合ヶ浜 9:47</text>
+        </g>
+        <!-- FLIGHT / EVENT boxes  y0+100.. -->
+        <g font-size="10.5" fill="#F5F0E6">
+          <!-- 9/5 -->
+          <rect x="408" y="128" width="112" height="22" rx="2" fill="#1B2732"/><text x="413" y="143">JL907 8:40→11:15</text>
+          <rect x="586.5" y="128" width="30" height="22" rx="2" fill="#0F8B8D"/><text x="589" y="143">RAC</text>
+          <rect x="652" y="128" width="72" height="22" rx="2" fill="#C9BFAA"/><text x="656" y="143" fill="#1B2732">15:00 チェックイン</text>
+          <rect x="802" y="128" width="98" height="22" rx="2" fill="#C9BFAA"/><text x="806" y="143" fill="#1B2732">夕食 (予約済)</text>
+          <!-- 9/6 -->
+          <rect x="352" y="268" width="112" height="22" rx="2" fill="#C9BFAA"/><text x="356" y="283" fill="#1B2732">7:00〜 朝食ビュッフェ</text>
+          <rect x="765" y="268" width="150" height="22" rx="2" fill="#C9BFAA"/><text x="769" y="283" fill="#1B2732">親戚宅で BBQ (夕方〜)</text>
+          <!-- 9/7 -->
+          <rect x="465" y="408" width="88" height="22" rx="2" fill="#C9BFAA"/><text x="469" y="423" fill="#1B2732">10:00 チェックアウト</text>
+          <rect x="630.6" y="408" width="22" height="22" rx="2" fill="#0F8B8D"/><text x="632" y="423">RAC</text>
+          <rect x="755.6" y="408" width="114" height="22" rx="2" fill="#1B2732"/><text x="759" y="423">JL916 17:45→20:15</text>
+        </g>
+        <g font-size="9.5" fill="#6F7B86">
+          <text x="586" y="124">13:15→13:55</text><text x="618" y="404">14:25→15:00</text>
+        </g>
+        <!-- legend inside -->
+        <g font-size="10" fill="#6F7B86" transform="translate(90,452)">
+          <rect x="0" y="-9" width="14" height="9" fill="#F3E6B8"/><text x="18" y="0">日照 6:06〜18:43</text>
+          <rect x="130" y="-9" width="14" height="9" fill="#1B2732" opacity=".12"/><text x="148" y="0">月の無い夜 (星向き)</text>
+          <line x1="290" y1="-4" x2="310" y2="-4" stroke="#0F8B8D" stroke-width="2.4"/><text x="314" y="0">潮位 (与論港)</text>
+          <circle cx="430" cy="-4" r="5" fill="#F5F0E6" stroke="#1B2732" stroke-width="2"/><text x="440" y="0">観光協会の百合ヶ浜予測 (△=可能性あり)</text>
+        </g>
+      </svg>
+      <figcaption>潮位は与論港の潮見表<sup class="cite"><a href="#s7">7</a></sup>、日の出・日の入は与論町<sup class="cite"><a href="#s8">8</a></sup>、百合ヶ浜の予測時刻はヨロン島観光協会の 2026 年カレンダー<sup class="cite"><a href="#s5">5</a></sup>。9/5 の夕食時刻は予約内容が手元に無いので位置は仮。</figcaption>
+    </figure>
+
+    <p>図から読めることは 3 つ。<b>①潮は 3 日とも「干満差が小さい週」</b>で、干潮の潮位が 54〜66cm と高め。百合ヶ浜が本気で出るのは干潮が 30cm 台になる大潮の日なので、今回は「砂の頭が出るかどうか」の勝負になる。<b>②一番低いのは 9/7 (月) 10:10 の 54cm</b>だが、その日はチェックアウトと帰りの便があり、行けるとしても午前だけ。<b>③9/6 (日) 朝 8:49 の 64cm</b> が唯一フルに使える干潮で、天気が持てば「朝食を早めに切り上げてグラスボート」が本命になる。</p>
+
+    <h3>往路 9/5 (土) — 4 つの乗り物</h3>
+    <div class="plan">
+      <div class="head"><b>羽田 → 那覇 → 与論 → プリシア</b><span>所要 5 時間 15 分 (待ち含む)</span></div>
+      <div class="row"><div class="t">07:40</div><div>羽田 第 1 ターミナル着。荷物預け締切 08:10・保安 08:20。<span class="note">JL907 は満席で機内収納が逼迫、預け推奨のメールが来ている。</span></div></div>
+      <div class="row"><div class="t">08:40</div><div><b>JL907</b> 羽田 → 那覇 11:15 着 (2 時間 35 分)。<span class="note">座席未指定。窓側なら左が本州の海岸線、右は太平洋。</span></div></div>
+      <div class="row"><div class="t">11:15</div><div>那覇着。国内線ターミナルは 1 棟で、JAL/JTA/RAC は同じ棟<sup class="cite"><a href="#s40">40</a></sup>。<b>荷物は取らない</b> (与論までスルー)。</div></div>
+      <div class="row"><div class="t">11:30</div><div>昼食。到着ロビー (1F) 左奥の「空港食堂」が定番で、沖縄そば・ゴーヤーチャンプルー定食が 600〜900 円、9:00〜20:00 年中無休<sup class="cite"><a href="#s33">33</a></sup>。8 人で入ると席待ちがあり得るので、混んでいたら 2F の出発フロアのフードコートへ。<span class="note">保安検査は 12:55 までに通過。</span></div></div>
+      <div class="row"><div class="t">13:15</div><div><b>RAC815 (JAL 予約上は NU815)</b> 那覇 → 与論 13:55 着 (40 分)。搭乗口からバスで機体まで行き、タラップを自分で上がる<sup class="cite"><a href="#s40">40</a></sup>。<span class="note">Q400CC は前方が貨物室で客室は後ろ半分、座席は 2-2 の 50 席。</span></div></div>
+      <div class="row"><div class="t">13:55</div><div>与論空港着。ターミナルは平屋 1 棟で、手荷物は台に手で置かれる。<b>プリシアの送迎バス</b>が到着便に合わせて来る (要事前連絡・空港から 3 分)<sup class="cite"><a href="#s10">10</a></sup>。</div></div>
+      <div class="row"><div class="t">15:00</div><div>チェックイン{{PV:p04| (予約サイトの確認番号と身分証を提示)}}。到着が 14:10 頃なので 50 分ほどロビーかビーチカフェで待つ。</div></div>
+    </div>
+    <div class="photos">
+      <figure class="photo">{{IMG:rac_naha}}<figcaption>那覇空港で RAC の Q400 に乗り込む。バス移動 → タラップ。{{CREDIT:rac_naha}}</figcaption></figure>
+      <figure class="photo">{{IMG:rac_q400cc}}<figcaption>Q400CC (貨物混載型)。前方の窓が無い部分が貨物室。{{CREDIT:rac_q400cc}}</figcaption></figure>
+      <figure class="photo">{{IMG:rac_shisa}}<figcaption>尾翼のシーサー。JAL グループだが塗装は琉球のもの。{{CREDIT:rac_shisa}}</figcaption></figure>
+    </div>
+    <div class="photos">
+      <figure class="photo">{{IMG:airport_terminal}}<figcaption>与論空港ターミナル。売店 (南商事) と軽食「ブルースカイ」、無料 Wi-Fi あり・ATM なし<sup class="cite"><a href="#s32">32</a></sup>。{{CREDIT:airport_terminal}}</figcaption></figure>
+      <figure class="photo">{{IMG:airport_counter}}<figcaption>与論空港のカウンター。復路はここで 14:25 発 RAC816 の手続き。{{CREDIT:airport_counter}}</figcaption></figure>
+      <figure class="photo">{{IMG:pricia1}}<figcaption>プリシアの送迎バス。空港・港の到着便に合わせて運行。{{CREDIT:pricia1}}</figcaption></figure>
+    </div>
+
+    <h3>復路 9/7 (月) — 午前を島で使い切る</h3>
+    <div class="plan">
+      <div class="head"><b>プリシア → 与論 → 那覇 → 羽田</b><span>与論空港には 13:40 に居ればよい</span></div>
+      <div class="row"><div class="t">10:00</div><div>チェックアウト。荷物はフロントに預け、午前は島で過ごす。</div></div>
+      <div class="row"><div class="t">13:30</div><div>与論空港へ (送迎バスは出発便に合わせて運行・要事前連絡)。手荷物を預けるなら 13:55 まで。</div></div>
+      <div class="row"><div class="t">14:25</div><div><b>RAC816</b> 与論 → 那覇 15:00 着。</div></div>
+      <div class="row"><div class="t">15:00</div><div>那覇で 2 時間 45 分。荷物はスルーなので身軽。土産は 2F、食事は 1F 空港食堂か 3〜4F (次の「那覇空港」の節)。与論の売店は小さいので、土産の本番はここ。</div></div>
+      <div class="row"><div class="t">17:45</div><div><b>JL916</b> 那覇 → 羽田 20:15 着。</div></div>
+    </div>
+
+    <h3>那覇空港 — 乗継の動線と、2 回の待ち時間の使い方</h3>
+    <p><b>JAL グループ (JAL・JTA・RAC) 同士の同日乗継は、那覇での搭乗手続きが要らない。</b>出発空港で 2 便分の手続きが済み、最低乗継時間は 20 分<sup class="cite"><a href="#s41">41</a></sup>。到着したら「制限エリアに残る」か「一度ロビーへ出る」かの二択で、乗継カウンターは JAL 側 (南側フィンガー) の保安エリア内にある<sup class="cite"><a href="#s41">41</a></sup>。RAC 便は搭乗口からバスで機体まで行き、タラップを上がる。</p>
+    <div class="grid-2">
+      <div class="plan">
+        <div class="head"><b>往路 9/5 — 2 時間</b><span>11:15 着 → 13:15 発</span></div>
+        <div class="row"><div class="t">A 案</div><div><b>制限エリアに残る</b>。ゲート脇の売店 (JAL 側は BLUE SKY、ANA 側は ANA FESTA ゲート店 6:30〜21:00<sup class="cite"><a href="#s42">42</a></sup>) で軽食と飲み物。8 人がはぐれず、保安検査の再通過も無い。台風で混乱している日はこちら。</div></div>
+        <div class="row"><div class="t">B 案</div><div><b>一度出て 1F「空港食堂」</b>。到着口 A を出て左奥、沖縄そば・ゴーヤーチャンプルー定食が 600〜900 円<sup class="cite"><a href="#s33">33</a></sup>。<span class="note">11:30 に着席できなければ諦めて A 案。2F の保安検査は 12:45 までに列へ。</span></div></div>
+        <div class="row"><div class="t">共通</div><div>荷物は与論までスルー。<b>モバイルバッテリーと酔い止め</b>はこの時間に手元へ出しておく (Q400 は棚が浅く、揺れる)。</div></div>
+      </div>
+      <div class="plan">
+        <div class="head"><b>復路 9/7 — 2 時間 45 分</b><span>15:00 着 → 17:45 発</span></div>
+        <div class="row"><div class="t">15:10</div><div>一度ロビーへ出て <b>2F 出発ロビーの土産ゾーン</b> (JAL PLAZA・わしたショップ・さくら売店・デパートリウボウ・ほうき星・PUZO・空人)。冷凍・冷蔵の品は最後に。</div></div>
+        <div class="row"><div class="t">16:00</div><div>早めの夕食。3F のレストラン街か 4F のフードコート、または 1F 空港食堂 (20:00 まで)。</div></div>
+        <div class="row"><div class="t">17:15</div><div>保安検査へ。羽田着 20:15 なので機内食は無く、ここで食べておく。</div></div>
+      </div>
+    </div>
+    <h4>那覇空港で買う土産 — 与論の売店に無いもの</h4>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>品</th><th>売場 (国内線 2F)</th><th>目安</th><th>ひとこと</th></tr></thead>
+      <tbody>
+        <tr><td><b>雪塩ちんすこう</b> (南風堂)</td><td>ANA FESTA・JALUX ほか</td><td class="num">216〜1,512 円</td><td>配り物の定番。小袋があり職場向き</td></tr>
+        <tr><td><b>沖縄限定プレッツェル</b> 黒糖 / 紅芋 / 旨塩 (オキコ)</td><td>さくら売店・グルクン売店</td><td class="num">792 円 (4 箱)</td><td>軽くてかさばらない</td></tr>
+        <tr><td><b>黒糖カヌレ</b> (ほうき星)</td><td>ほうき星 那覇空港店</td><td class="num">880〜2,200 円</td><td>多良間島の黒糖。要冷蔵ではないが当日中に</td></tr>
+        <tr><td><b>空人 さーたーあんだぎー / わたがし</b></td><td>2F 各売店</td><td class="num">1,050 / 581 円</td><td><b>那覇空港限定</b></td></tr>
+        <tr><td><b>唐芋レアケーキ シュリ</b> (フェスティバロ)</td><td>JAL PLAZA・センカ</td><td class="num">1,325〜2,600 円</td><td>冷凍。保冷バッグで 2〜3 時間持つ</td></tr>
+        <tr><td><b>ロイズ石垣島 黒糖チョコレート</b></td><td>JAL PLAZA・ANA FESTA</td><td class="num">810 円 (32 枚)</td><td>9 月はまだ暑いので機内持ち込みで</td></tr>
+        <tr><td><b>Southern Cross Winery パッションフルーツ</b> (オリオン)</td><td>コスモワイン館・センカ</td><td class="num">—</td><td>県産パッションフルーツのワイン。与論の名と同じ「南十字星」</td></tr>
+        <tr><td><b>那覇空港限定 泡盛「ホワイトタイガー」</b></td><td>2F 酒売場</td><td class="num">—</td><td>空港でしか買えない</td></tr>
+        <tr><td><b>ブルーシール ベイクドドーナツ / 紅芋ケーキ おもろ</b></td><td>ANA FESTA・JALUX ほか</td><td class="num">702〜1,404 円</td><td>子どもがいる家への土産に</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="font-size:.88rem">価格・売場はじゃらんニュース 2026 年版の掲載値<sup class="cite"><a href="#s43">43</a></sup>。与論で買うべきもの (島有泉・きび酢・ピーナツ黒糖・ヨロンブルーサイダー・島バナナ) は §09。</p>
+    <figure class="photo">{{IMG:dragon_naha}}<figcaption>那覇空港の果物売場のドラゴンフルーツ。9 月は与論でも旬で、A コープの方が安い。{{CREDIT:dragon_naha}}</figcaption></figure>
+  </section>
+
+  <!-- ============ 03 ============ -->
+  <section class="section" id="s03">
+    <div class="sec-head"><span class="n">03</span><h2>与論島とはどんな島か</h2><span class="lv">概要 · 5 分</span></div>
+    <p><b>鹿児島県の最南端で、沖縄本島 (辺戸岬) までは 23km、鹿児島市までは 580km。</b>行政は鹿児島、暮らしと言葉は琉球寄り。周囲 23.7km・面積 20.58km²・最高点 97.1m の平らな島で、隆起したサンゴ礁 (琉球石灰岩) でできている<sup class="cite"><a href="#s14">14</a></sup>。人口は約 4,900 人 (2026 年 2 月)、1 島 1 町・9 集落<sup class="cite"><a href="#s16">16</a></sup>。車なら 1 周 1 時間、自転車でも半日で回れる。</p>
+    <figure class="photo">{{IMG:aerial_katsuu}}<figcaption>沖縄本島北部の山から見た与論島 (2026 年 7 月)。海峡はわずか 23km で、与論城跡やサザンクロスセンターからは逆に沖縄が見える。{{CREDIT:aerial_katsuu}}</figcaption></figure>
+
+    <h3>島の略図 — どこに何があるか</h3>
+    <figure class="diagram">
+      <svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="BIZ UDPGothic, Meiryo, sans-serif">
+        <rect x="0" y="0" width="760" height="470" fill="#BFE3E4" opacity=".55"/>
+        <!-- reef ring -->
+        <path d="M118,52 C200,10 330,0 430,18 C540,34 660,100 700,190 C735,270 690,370 590,412 C480,460 300,462 190,420 C90,380 40,300 50,210 C58,140 70,80 118,52 Z" fill="#DDEFEF" stroke="#8FC9CA" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <!-- island -->
+        <path d="M140,80 C210,45 330,40 430,55 C520,68 620,130 655,200 C690,270 650,350 570,385 C470,430 300,430 200,395 C120,365 80,300 88,220 C94,160 100,110 140,80 Z" fill="#EADFC6" stroke="#1B2732" stroke-width="1.6"/>
+        <!-- inland hint -->
+        <path d="M250,150 C330,120 420,130 500,170 C560,200 570,260 520,300 C450,350 300,350 240,300 C200,260 200,180 250,150 Z" fill="#DCCFAF" opacity=".7"/>
+        <!-- roads (schematic loop) -->
+        <path d="M175,130 C260,90 380,90 470,120 C560,150 610,220 600,290 C590,340 500,380 420,385 C320,392 220,370 170,320 C130,280 130,190 175,130 Z" fill="none" stroke="#FDFBF6" stroke-width="3"/>
+        <!-- airport runway (NW) -->
+        <rect x="125" y="118" width="14" height="80" fill="#6F7B86" transform="rotate(-25 132 158)"/>
+        <!-- Yurigahama sandbar (E, offshore) -->
+        <ellipse cx="705" cy="235" rx="22" ry="7" fill="#FDFBF6" stroke="#1B2732" stroke-width="1"/>
+        <!-- spots: circle + label -->
+        <g font-size="12.5" fill="#1B2732">
+          <g><circle cx="150" cy="150" r="5" fill="#0F8B8D"/><text x="160" y="146">与論空港</text></g>
+          <g><circle cx="128" cy="205" r="6" fill="#1B2732"/><text x="40" y="232" font-weight="700">プリシア</text><text x="40" y="248" font-size="10.5" fill="#6F7B86">兼母海岸・空港から車 3 分</text></g>
+          <g><circle cx="215" cy="205" r="5" fill="#0F8B8D"/><text x="222" y="200">茶花 (繁華街・役場・郵便局)</text></g>
+          <g><circle cx="200" cy="170" r="4.5" fill="#0F8B8D"/><text x="208" y="166">ウドノスビーチ</text></g>
+          <g><circle cx="140" cy="270" r="5" fill="#0F8B8D"/><text x="148" y="285">与論港 (供利)・ヨロン駅</text></g>
+          <g><circle cx="300" cy="72" r="4.5" fill="#0F8B8D"/><text x="308" y="68">寺崎海岸</text></g>
+          <g><circle cx="420" cy="70" r="4.5" fill="#0F8B8D"/><text x="428" y="66">皆田海岸 (北)</text></g>
+          <g><circle cx="628" cy="238" r="5" fill="#0F8B8D"/><text x="520" y="232">大金久海岸</text><text x="520" y="248" font-size="10.5" fill="#6F7B86">グラスボート乗り場</text></g>
+          <g><text x="660" y="262" font-weight="700" font-size="12">百合ヶ浜</text><text x="660" y="277" font-size="10.5" fill="#6F7B86">干潮時のみ・沖 1.5km</text></g>
+          <g><circle cx="600" cy="290" r="4.5" fill="#0F8B8D"/><text x="520" y="305">鳩の湖</text></g>
+          <g><circle cx="380" cy="300" r="5" fill="#0F8B8D"/><text x="300" y="330">与論城跡・サザンクロスセンター</text><text x="300" y="345" font-size="10.5" fill="#6F7B86">島で一番高い場所 (南)</text></g>
+          <g><circle cx="560" cy="360" r="4.5" fill="#0F8B8D"/><text x="470" y="380">赤崎鍾乳洞 (南東)</text></g>
+          <g><circle cx="470" cy="330" r="4.5" fill="#0F8B8D"/><text x="475" y="322">与論民俗村</text></g>
+          <g><circle cx="205" cy="240" r="4" fill="#0F8B8D"/><text x="212" y="244">有村酒造</text></g>
+        </g>
+        <g font-size="11" fill="#6F7B86">
+          <text x="600" y="40">↑ 北</text>
+          <text x="30" y="450">略図 (縮尺・形は概略。東西 約 7km)。白い線は島を 1 周する県道。点線はリーフ (サンゴ礁の縁)。</text>
+        </g>
+      </svg>
+      <figcaption>位置は OpenStreetMap の座標 (空港 27.044N/128.401E・プリシア 27.049/128.399・百合ヶ浜 27.039/128.466 など) から起こした概略。プリシアは島の西北、百合ヶ浜は真反対の東側で、車で 15 分。</figcaption>
+    </figure>
+    <p>島の使い方は単純で、<b>西側 (空港・プリシア・茶花) に寝て、東側 (大金久・百合ヶ浜) に遊びに行き、南の高台 (与論城跡) で島全体を眺める</b>。8 人で 3 日いても、この三角形を 2 周すれば主要な場所は全部踏める。</p>
+  </section>
+
+  <!-- ============ 04 ============ -->
+  <section class="section" id="s04">
+    <div class="sec-head"><span class="n">04</span><h2>島の歴史 — 琉球と薩摩のあいだ、そして観光ブーム</h2><span class="lv">読み物 · 8 分</span></div>
+    <p><b>与論の歴史は「2 つの大国に挟まれた小さな島が、自分の文化を残してきた話」</b>。琉球王国の北の端として 300 年、薩摩の南の端として 300 年、そして戦後は米軍統治とその返還、離島ブームと衰退、再生の途上にある。</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="BIZ UDPGothic, Meiryo, sans-serif">
+        <line x1="40" y1="180" x2="960" y2="180" stroke="#1B2732" stroke-width="2"/>
+        <!-- eras -->
+        <rect x="40" y="168" width="250" height="24" fill="#0F8B8D" opacity=".18"/><text x="50" y="150" font-size="13" fill="#0F8B8D" font-family="IBM Plex Mono">琉球王国 (北山 → 中山)</text>
+        <rect x="290" y="168" width="250" height="24" fill="#1B2732" opacity=".18"/><text x="300" y="150" font-size="13" fill="#1B2732" font-family="IBM Plex Mono">薩摩藩・鹿児島県</text>
+        <rect x="540" y="168" width="70" height="24" fill="#1B2732" opacity=".45"/><text x="522" y="150" font-size="13" fill="#1B2732" font-family="IBM Plex Mono">米軍統治</text>
+        <rect x="610" y="168" width="350" height="24" fill="#0F8B8D" opacity=".18"/><text x="640" y="150" font-size="13" fill="#0F8B8D" font-family="IBM Plex Mono">日本復帰後</text>
+        <!-- events: above = 上段, below = 下段 -->
+        <g fill="#1B2732" font-size="13.5">
+          <g><circle cx="60" cy="180" r="6" fill="#1B2732"/><text x="60" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1266</text><text x="60" y="244" text-anchor="middle">琉球の英祖王に朝貢</text></g>
+          <g><circle cx="140" cy="180" r="6" fill="#1B2732"/><text x="140" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1405〜16</text><text x="140" y="74" text-anchor="middle">北山王の三男が</text><text x="140" y="96" text-anchor="middle">与論城を築城</text></g>
+          <g><circle cx="230" cy="180" r="6" fill="#1B2732"/><text x="230" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1561</text><text x="230" y="244" text-anchor="middle">十五夜踊り・</text><text x="230" y="266" text-anchor="middle">与論献奉が始まる</text></g>
+          <g><circle cx="300" cy="180" r="6" fill="#1B2732"/><text x="300" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1609 / 1616</text><text x="300" y="96" text-anchor="middle">薩摩侵攻・代官着任</text></g>
+          <g><circle cx="380" cy="180" r="6" fill="#1B2732"/><text x="380" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1829</text><text x="380" y="244" text-anchor="middle">黒糖の総買い上げ制</text></g>
+          <g><circle cx="470" cy="180" r="6" fill="#1B2732"/><text x="470" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1898</text><text x="470" y="74" text-anchor="middle">暴風と飢饉で</text><text x="470" y="96" text-anchor="middle">約 1,200 人が九州へ</text></g>
+          <g><circle cx="575" cy="180" r="6" fill="#1B2732"/><text x="575" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1953.12.25</text><text x="575" y="244" text-anchor="middle">日本復帰</text></g>
+          <g><circle cx="660" cy="180" r="6" fill="#1B2732"/><text x="660" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1972</text><text x="660" y="74" text-anchor="middle">沖縄返還まで</text><text x="660" y="96" text-anchor="middle">「日本最南端の島」</text></g>
+          <g><circle cx="740" cy="180" r="8" fill="#0F8B8D"/><text x="740" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1978〜79</text><text x="740" y="244" text-anchor="middle">観光ブーム</text><text x="740" y="266" text-anchor="middle">年 15 万人超</text></g>
+          <g><circle cx="810" cy="180" r="6" fill="#1B2732"/><text x="810" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1983</text><text x="810" y="96" text-anchor="middle">パナウル王国</text></g>
+          <g><circle cx="880" cy="180" r="6" fill="#1B2732"/><text x="880" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">1998</text><text x="880" y="244" text-anchor="middle">サンゴ白化</text></g>
+          <g><circle cx="945" cy="180" r="8" fill="#0F8B8D"/><text x="945" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="12.5">2023</text><text x="960" y="74" text-anchor="end">持続可能な観光地</text><text x="960" y="96" text-anchor="end">Top100 選定</text></g>
+        </g>
+        <text x="40" y="330" font-size="12" fill="#6F7B86">年号は観光協会「ヨロン島の基礎知識」と Wikipedia、観光統計は鹿児島大学の報告、Top100 は Green Destinations による。</text>
+      </svg>
+      <figcaption>出典 14・15・18・19・38 (末尾の出典節)。</figcaption>
+    </figure>
+
+    <h3>琉球の島だった 300 年</h3>
+    <p>島には女神アマミクと男神シニグクが上陸して島ができたという神話があり、古くは「ユルヌ」と呼ばれた。1266 年に琉球の英祖王統に朝貢した記録が残り、14 世紀に沖縄北部の北山王国の勢力下に入る。<b>1405〜16 年ごろ、北山王の三男・王舅 (オーシャン) が島の南の高台に与論城を築いた</b>が、北山が中山に滅ぼされたため未完成のまま残った<sup class="cite"><a href="#s14">14</a></sup><sup class="cite"><a href="#s15">15</a></sup>。今の与論城跡はその石垣で、上に地主 (トコヌシ) 神社が建つ。1561 年に始まったとされる十五夜踊り (国指定重要無形民俗文化財) は、大和の能・狂言風の演目と琉球風の演目が交互に出る構成で、<b>2 つの文化圏の境目にいた島だからこそ生まれた芸能</b>。旧暦 3・8・10 月の十五夜に、この城跡の境内で奉納される<sup class="cite"><a href="#s14">14</a></sup>。</p>
+    <h3>薩摩の島になった 300 年</h3>
+    <p>1609 年の薩摩の琉球侵攻で奄美群島は薩摩藩の直轄になり、与論には 1616 年に代官が着任 (大島より遅れた)。1829 年からは黒糖を藩が総買い上げする制度が敷かれ、サトウキビ単作と重い年貢の時代が続く。島の言葉「ユンヌフトゥバ」が沖縄方言と奄美方言の両方の特徴を持つのは、この 2 つの支配の重なりが言葉に残ったもの<sup class="cite"><a href="#s14">14</a></sup>。<b>1898 年、暴風雨と飢饉で島民の 4 分の 1 にあたる約 1,200 人が九州 (主に鹿児島県の口之津・福岡の三池炭鉱周辺) へ集団移住した</b><sup class="cite"><a href="#s15">15</a></sup>。島の墓地や集落が今も小さく見えるのはこの人口流出の跡でもある。</p>
+    <figure class="photo">{{IMG:tomb_prewar}}<figcaption>戦前 (昭和初期) の与論島の墓所。石を積んだ囲いと茅葺きの小屋。この頃の暮らしは与論民俗村 (§08) に復元されている。{{CREDIT:tomb_prewar}}</figcaption></figure>
+    <h3>米軍統治から「最南端の島」へ</h3>
+    <p>戦後、奄美群島は沖縄と同じく米軍統治下に置かれ、<b>1953 年 12 月 25 日に日本へ復帰</b>。そこから 1972 年の沖縄返還までの 19 年間、与論は「日本最南端の島」だった。1970 年代の離島ブームで若者が押し寄せ、<b>1978〜79 年には年間 15 万人超 (Wikipedia は 20 万人超と記す)</b> が訪れて、茶花の一本道が「茶花銀座」と呼ばれる繁華街になった。4 畳半に 5 人が泊まる過密ぶりだったという<sup class="cite"><a href="#s18">18</a></sup><sup class="cite"><a href="#s19">19</a></sup>。1983 年、町政 20 周年の記念に「ヨロンパナウル王国」というパロディ国家を建国。パナは方言で花、ウルはサンゴ<sup class="cite"><a href="#s20">20</a></sup>。</p>
+    <p>ブームは海外旅行の普及とともに去り、2008 年に 6 万人、2012 年に約 5 万人まで落ちる。1998 年には高水温でリーフのミドリイシ類がほぼ死滅する白化が起きた<sup class="cite"><a href="#s38">38</a></sup>。<b>今の与論は、この「観光で一度壊れかけた島」が持続可能な観光へ舵を切った途上</b>にある。続きは §05。</p>
+    <div class="photos two">
+      <figure class="photo">{{IMG:map_1944}}<figcaption>1944 年の米陸軍地図局による与論島の地図。米軍統治期の前史。{{CREDIT:map_1944}}</figcaption></figure>
+      <figure class="photo">{{IMG:kunigami_monument}}<figcaption>沖縄・国頭村との友好記念碑。海峡 23km を挟んだ隣村。{{CREDIT:kunigami_monument}}</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ 05 ============ -->
+  <section class="section" id="s05">
+    <div class="sec-head"><span class="n">05</span><h2>最近の観光情勢 — 数字と現場の空気</h2><span class="lv">読み物 · 6 分</span></div>
+    <p><b>観光客は戻っている。2024 年の入込客数は 71,057 人で、コロナ前の 2019 年 (66,526 人) を 6.8% 上回った</b><sup class="cite"><a href="#s17">17</a></sup>。ただしピークの半分以下で、島はもう「数を増やす」観光をしていない。</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, Consolas, monospace">
+        <g font-size="11" fill="#6F7B86">
+          <line x1="70" y1="210" x2="780" y2="210" stroke="#C9BFAA"/>
+          <text x="20" y="214">0</text><text x="20" y="145">5万</text><line x1="70" y1="141" x2="780" y2="141" stroke="#E2DACB"/>
+          <text x="20" y="76">10万</text><line x1="70" y1="72" x2="780" y2="72" stroke="#E2DACB"/>
+          <text x="20" y="16">15万</text><line x1="70" y1="12" x2="780" y2="12" stroke="#E2DACB"/>
+        </g>
+        <!-- bars: height = n/150000*198 ; base y=210 -->
+        <g>
+          <rect x="90" y="8" width="60" height="202" fill="#1B2732"/><text x="120" y="232" text-anchor="middle" font-size="11" fill="#1B2732">1978-79</text><text x="120" y="248" text-anchor="middle" font-size="10" fill="#6F7B86">15 万人超</text>
+          <rect x="200" y="131" width="60" height="79" fill="#C9BFAA"/><text x="230" y="232" text-anchor="middle" font-size="11" fill="#1B2732">2008</text><text x="230" y="248" text-anchor="middle" font-size="10" fill="#6F7B86">約 6.0 万</text>
+          <rect x="300" y="144" width="60" height="66" fill="#C9BFAA"/><text x="330" y="232" text-anchor="middle" font-size="11" fill="#1B2732">2012</text><text x="330" y="248" text-anchor="middle" font-size="10" fill="#6F7B86">約 5.0 万 (底)</text>
+          <rect x="420" y="122" width="60" height="88" fill="#C9BFAA"/><text x="450" y="232" text-anchor="middle" font-size="11" fill="#1B2732">2019</text><text x="450" y="248" text-anchor="middle" font-size="10" fill="#6F7B86">66,526</text>
+          <rect x="520" y="126" width="60" height="84" fill="#C9BFAA"/><text x="550" y="232" text-anchor="middle" font-size="11" fill="#1B2732">2023</text><text x="550" y="248" text-anchor="middle" font-size="10" fill="#6F7B86">約 6.4 万</text>
+          <rect x="620" y="116" width="60" height="94" fill="#0F8B8D"/><text x="650" y="232" text-anchor="middle" font-size="11" fill="#1B2732">2024</text><text x="650" y="248" text-anchor="middle" font-size="10" fill="#6F7B86">71,057 (+11.8%)</text>
+        </g>
+        <text x="90" y="262" font-size="10" fill="#6F7B86"></text>
+      </svg>
+      <figcaption>与論島の年間入込客数。1978-79 は鹿児島大学の報告 (15 万人超)、2008・2012 は同報告と Wikipedia、2019・2024 は奄美新聞 (鹿児島県大島支庁発表)。2023 は 2024 の前年比から逆算。2025 年分は 2026 年 3〜4 月に県が発表する慣例で、本書執筆時点では未公表<sup class="cite"><a href="#s17">17</a></sup><sup class="cite"><a href="#s18">18</a></sup>。</figcaption>
+    </figure>
+    <h3>「持続可能な観光地 Top100」の島</h3>
+    <p>2023 年、与論町はオランダの認証団体 Green Destinations が選ぶ「世界の持続可能な観光地 Top100」に入った<sup class="cite"><a href="#s19">19</a></sup>。きっかけは 2014 年に始まった海岸のゴミ拾いと、2017 年に浜に置かれた「拾い箱」(拾ったゴミを入れる箱)。ブーム期に「4 畳半に 5 人」の過密を経験した島が、繁忙期と閑散期の差を縮めて長期滞在を増やす方向に舵を切っている。旅行者側でできることは単純で、<b>浜のゴミを 1 つ拾って拾い箱に入れる、サンゴを踏まない、日焼け止めはサンゴに優しい成分のものを使う</b>の 3 つ。</p>
+    <h3>サンゴと赤土 — 海の中は 1998 年に一度壊れている</h3>
+    <p>1998 年の高水温でリーフ東側のミドリイシ類 (枝サンゴ) がほぼ死滅し、その後も度重なる白化と、畑からの赤土流出で生態系の劣化が続いている<sup class="cite"><a href="#s38">38</a></sup>。環境省が 2019 年に与論をサンゴ礁保全のモデル地域にしたのはこのため。シュノーケルで見える「ヨロンブルー」の透明度は健在だが、色とりどりの枝サンゴの群落を期待すると肩透かしを食う。<b>魚は多い。サンゴは回復途上</b>と思って潜ると納得できる。</p>
+    <figure class="photo">{{IMG:underwater}}<figcaption>与論の海中。ソフトコーラルとスズメダイの群れ。{{CREDIT:underwater}}</figcaption></figure>
+    <h3>百合ヶ浜の「砂が薄い年」</h3>
+    <p>観光協会は 2026 年 4 月時点で「当初の予測より砂の盛り上がりが少なく、予測していたスケジュールでも出現しない可能性がある」と告知している<sup class="cite"><a href="#s6">6</a></sup>。砂州は毎年の波と台風で形を変えるので、当たり年と外れ年がある。今回の滞在は潮も弱い週なので、<b>百合ヶ浜は「出たら儲けもの」に格下げして、グラスボートと大金久海岸のシュノーケル自体を目的にする</b>のが精神衛生上よい。</p>
+    <h3>アクセスの現状</h3>
+    <p>空路は JAL グループの鹿児島・奄美・那覇の 3 方向。那覇便は RAC の 1 日 1 往復だけで、これが今回の旅程の細い糸。海路はマリックスライン・マルエーフェリーが鹿児島⇄那覇を毎日 1 便ずつ結び、与論港に寄港する (那覇まで約 4 時間半、鹿児島まで約 20 時間)<sup class="cite"><a href="#s15">15</a></sup>。<b>欠航時の逃げ道としてフェリーが使える</b>ことは頭の隅に (§13)。</p>
+    <figure class="photo">{{IMG:ferry}}<figcaption>与論島沖を航行するマリックスラインのフェリー。鹿児島⇄奄美各島⇄与論⇄那覇を結ぶ。{{CREDIT:ferry}}</figcaption></figure>
+  </section>
+
+  <!-- ============ 06 ============ -->
+  <section class="section" id="s06">
+    <div class="sec-head"><span class="n">06</span><h2>プリシアリゾートヨロン — 白い壁と兼母海岸</h2><span class="lv">宿 · 5 分</span></div>
+    <p><b>ギリシャのミコノス島を模した白壁と青いタイルのコテージ群で、目の前が兼母 (かねぼ) 海岸のプライベートビーチ。</b>島の西北、空港から車 3 分・港から 8 分。1980 年代の観光ブーム末期に建ったリゾートで、口コミには「ロケーションはどこを切っても最高」と「老朽化・かび臭さ」が同居する<sup class="cite"><a href="#s11">11</a></sup>。期待値は「南の島の古いリゾート」に置くと、海と朝食で十分に元が取れる。</p>
+    <div class="photos">
+      <figure class="photo">{{IMG:pricia2}}<figcaption>白壁と青タイルのコテージ。{{CREDIT:pricia2}}</figcaption></figure>
+      <figure class="photo">{{IMG:pricia3}}<figcaption>敷地から海へ降りる階段。海までは徒歩 1 分。{{CREDIT:pricia3}}</figcaption></figure>
+      <figure class="photo">{{IMG:pricia_beach}}<figcaption>プライベートビーチ (兼母海岸)。カヤックとデッキチェア。{{CREDIT:pricia_beach}}</figcaption></figure>
+    </div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>予約</td><td>{{PV:p05|各自の予約サイトの確認番号を手元に。チェックインは宿泊者名と身分証で}}</td></tr>
+        <tr><td>チェックイン / アウト</td><td>15:00〜翌 06:00 / 10:00</td></tr>
+        <tr><td>朝食</td><td>9/6・9/7 の 2 回、ビュッフェ 07:00〜10:00 (2 名分込み。追加は大人 2,500 円)</td></tr>
+        <tr><td>レストラン</td><td>地中海料理「アネリア」、炉端焼き「ぴき」(島の食材の炭焼き)、ビーチカフェ「パラディソス」、夏季限定のサンセット BBQ<sup class="cite"><a href="#s11">11</a></sup></td></tr>
+        <tr><td>送迎</td><td>空港・港の到着便/出発便に合わせてホテル専用バス。<b>要事前連絡</b> (電話 0997-97-5060)<sup class="cite"><a href="#s10">10</a></sup></td></tr>
+        <tr><td>アクティビティ</td><td>百合ヶ浜ツアー、SUP で行く百合ヶ浜、シュノーケル、ファンダイビング、マリンジェット、バナナボート、ウェイクボードなど 57 種をホテルが窓口で受ける (料金は現地掲示)<sup class="cite"><a href="#s11">11</a></sup></td></tr>
+        <tr><td>その他</td><td>プール、ショップ、駐車場 20 台無料。Wi-Fi はロビー中心と口コミにある (客室の電波は要確認)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><div class="t">8 人グループでの使い方</div>同行者の宿が別なら、集合場所はプリシアのロビーかビーチカフェが分かりやすい (空港から 3 分・茶花から車 5 分)。9/5 の夕食は予約済みなので、<b>プリシアから店までの足だけ決めておく</b>。茶花までは約 2.5km で徒歩 30 分、夜道は街灯が少ない。タクシーは南陸運 (0997-97-3331) の 1 社で台数が少なく、<b>帰りの迎えを先に頼んでおく</b>のが与論流。</div>
+    <figure class="photo">{{IMG:pricia_bbq}}<figcaption>プリシアの BBQ テラスの夕景。9/6 の BBQ は親戚宅なので、ここは 9/5 の食前酒に。{{CREDIT:pricia_bbq}}</figcaption></figure>
+  </section>
+
+  <!-- ============ 07 ============ -->
+  <section class="section" id="s07">
+    <div class="sec-head"><span class="n">07</span><h2>3 日間のプラン — 晴れ版と雨版</h2><span class="lv">必読 · 10 分</span></div>
+    <p><b>前提: 9/5 の夕食は予約済み、9/6 の夜は親戚宅で BBQ。天気は 9/5 雨 (90%)、9/6 雨のち曇、9/7 曇 (30%)</b><sup class="cite"><a href="#s4">4</a></sup>。したがって「9/5 は着いて休む日」「9/6 は天気次第で海か屋内」「9/7 は午前勝負」。晴れ版と雨版を並べたので、朝の空を見てどちらかを選ぶ。</p>
+
+    <h3>9/5 (土) — 着いたら、雨でも海を見に行く</h3>
+    <div class="plan">
+      <div class="head"><b>晴れ版・雨版 共通</b><span>到着 13:55 · 日没 18:43</span></div>
+      <div class="row"><div class="t">14:10</div><div>プリシア着。チェックインまでビーチカフェで一服、または荷物だけ預けて敷地を歩く。</div></div>
+      <div class="row"><div class="t">15:00</div><div>チェックイン。<span class="note">部屋で台風の続報を確認 (tenki.jp)。</span></div></div>
+      <div class="row"><div class="t">15:30</div><div><b>晴れなら</b>: 目の前の兼母海岸で足だけ浸ける。<b>雨なら</b>: 車で茶花へ出て、有村酒造の直売 (茶花 226-1・8:00〜17:00・日祝休)<sup class="cite"><a href="#s29">29</a></sup> で BBQ 用の島有泉を買い、A コープかスーパー「トップ」で明日の飲み物を調達。<span class="note">9/6 は日曜で有村酒造が休み。土曜のうちに買う。</span></div></div>
+      <div class="row"><div class="t">17:30</div><div>プリシアに戻ってシャワー。晴れていれば 18:43 の日没を敷地の西向きテラスで。</div></div>
+      <div class="row"><div class="t">夜</div><div>予約済みの夕食へ。与論の居酒屋では初日に<b>与論献奉</b> (§09) が回ってくることがある。翌朝グラスボートに乗る人は深追いしない。</div></div>
+    </div>
+
+    <h3>9/6 (日) — 唯一の丸一日。朝の干潮 8:49 に賭ける</h3>
+    <div class="grid-2">
+      <div class="plan">
+        <div class="head"><b>晴れ版</b><span>朝食を 7:00 に</span></div>
+        <div class="row"><div class="t">07:00</div><div>朝食ビュッフェ (開店と同時に)。</div></div>
+        <div class="row"><div class="t">07:45</div><div>大金久海岸へ (車 15 分)。<span class="note">グラスボートは前日夕方までに予約。8 人なら 1 艇 (定員 20) で貸切に近い。</span></div></div>
+        <div class="row"><div class="t">08:30</div><div><b>グラスボートで百合ヶ浜へ</b> (往復 3,300〜3,850 円・10 分)<sup class="cite"><a href="#s21">21</a></sup>。干潮 8:49 前後の 1 時間が勝負。砂が出なくても膝下の浅瀬で星砂探しはできる。</div></div>
+        <div class="row"><div class="t">10:00</div><div>大金久海岸でシュノーケル。ラッシュガード必須 (§10)。</div></div>
+        <div class="row"><div class="t">12:00</div><div>昼: 鶏飯「ヨロンの味 たら」(11:30〜14:00・要予約)<sup class="cite"><a href="#s22">22</a></sup> か、もずくそば「蒼い珊瑚礁」。8 人なら予約。</div></div>
+        <div class="row"><div class="t">13:30</div><div>与論城跡 → サザンクロスセンター (展望室から沖縄本島)。</div></div>
+        <div class="row"><div class="t">15:00</div><div>ウドノスビーチか寺崎海岸で夕方まで。</div></div>
+        <div class="row"><div class="t">17:00</div><div>親戚宅へ。<b>BBQ の手土産は島有泉と、A コープの「ヨロン黒牛」か「奄美黒ほろほろ鳥」</b>(§09)。</div></div>
+        <div class="row"><div class="t">21:00</div><div>月が無い夜。晴れ間があれば BBQ の庭で天の川 (南〜南西の空)。</div></div>
+      </div>
+      <div class="plan">
+        <div class="head"><b>雨版</b><span>雨脚が弱い時間に外へ</span></div>
+        <div class="row"><div class="t">08:00</div><div>朝食。急がない。</div></div>
+        <div class="row"><div class="t">09:30</div><div><b>赤崎鍾乳洞</b> (500 円・15〜20 分・ヘルメットと懐中電灯貸出)<sup class="cite"><a href="#s23">23</a></sup>。雨でも中は同じ。足元が滑るので濡れてもいい靴。</div></div>
+        <div class="row"><div class="t">10:30</div><div><b>サザンクロスセンター</b> (400 円)<sup class="cite"><a href="#s24">24</a></sup>。1〜4F が歴史・芸能・民具の資料館、5F が展望室。雨の与論を上から見るのも悪くない。</div></div>
+        <div class="row"><div class="t">12:00</div><div>昼: 茶花の食堂・カフェ (§09)。</div></div>
+        <div class="row"><div class="t">13:30</div><div><b>与論民俗村</b>。茅葺き民家と赤瓦民家の復元、菊さん一家が案内してお茶請けが出る。芭蕉布のコースター織り体験あり<sup class="cite"><a href="#s25">25</a></sup>。</div></div>
+        <div class="row"><div class="t">15:00</div><div>ゆんぬ・あーどぅる焼の窯元で島の土の器を見る。雨脚が止んだら大金久へ「海の色だけ見に」寄る。</div></div>
+        <div class="row"><div class="t">17:00</div><div>親戚宅で BBQ (屋根の有無を先に聞いておく)。</div></div>
+      </div>
+    </div>
+    <div class="callout"><div class="t">判断のコツ</div>雨版と晴れ版は午前だけ違う。<b>朝 7 時の空と海況で決め、グラスボート業者に「今日出るか」を電話で聞く</b>のが最短。業者は海況で欠航を決めるので、こちらが悩む必要はない。午後の与論城跡・サザンクロスは小雨でも行ける。</div>
+
+    <h3>9/7 (月) — 10:10 の干潮と、14:25 の便</h3>
+    <div class="plan">
+      <div class="head"><b>共通 (曇 30%)</b><span>空港集合 13:40</span></div>
+      <div class="row"><div class="t">07:00</div><div>朝食。荷造りを済ませて 9:30 までにフロントに荷物を預ける。</div></div>
+      <div class="row"><div class="t">09:30</div><div><b>前日に百合ヶ浜へ行けなかった場合の再挑戦</b>: 大金久 → グラスボート。干潮 10:10 (54cm) はこの 3 日で一番低い<sup class="cite"><a href="#s7">7</a></sup>。行けた場合は<b>皆田海岸</b> (北岸・干潮時に沖の岩まで歩ける) かヨロン駅で写真。</div></div>
+      <div class="row"><div class="t">11:30</div><div>昼: 茶花で軽く。空港の「ブルースカイ」でもよいが席が少ない。</div></div>
+      <div class="row"><div class="t">12:30</div><div>土産 (§09)。与論の売店は小さいので、島でしか買えないもの (島有泉・きび酢・ピーナツ黒糖・ヨロンブルーサイダー) に絞る。</div></div>
+      <div class="row"><div class="t">13:30</div><div>プリシアで荷物を受け取り送迎で空港へ。</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 08 ============ -->
+  <section class="section" id="s08">
+    <div class="sec-head"><span class="n">08</span><h2>スポット図鑑 — 12 か所</h2><span class="lv">引く · 12 分</span></div>
+    <p>各カードの <span class="rain">雨OK</span> は雨天でも成立する場所、<span class="rain no">晴れ向き</span> は海の色や展望が本体の場所。所要は 8 人で動く前提で少し長めに見積もってある。</p>
+    <div class="spots">
+      <div class="spot">{{IMG:yurigahama}}<div class="body"><div class="name">百合ヶ浜 <span class="rain no">晴れ向き</span></div><div class="meta">東岸・大金久沖 1.5km · グラスボート 10 分 · 往復 3,300〜3,850 円</div><p>春〜秋の大潮の干潮時だけ海の真ん中に現れる白い砂州。この滞在中は 3 日とも観光協会の予測が「△」で、干潮の潮位も高め。<b>船は出ても砂が出ない可能性がある</b>と割り切る。星砂 (有孔虫の殻) は砂が出なくても浅瀬で拾える。「自分の年の数だけ拾うと幸せになる」が島の言い伝え<sup class="cite"><a href="#s5">5</a></sup><sup class="cite"><a href="#s21">21</a></sup>。<b>泳いで渡るのは事故があり禁止</b>。</p></div></div>
+      <div class="spot">{{IMG:minata1}}<div class="body"><div class="name">大金久 (おおがねく) 海岸 <span class="rain no">晴れ向き</span></div><div class="meta">東岸 · 島最長 2km の砂浜 · 駐車場・シャワー・売店あり</div><p>百合ヶ浜への船が出る浜で、リーフに守られて波が穏やか。シュノーケルは浜から入れるが、魚が多いのはリーフ寄り。マリンショップ (タンディマリン、マリン 5、トメクルーズ、ヨロン島シーマンズクラブ) がここに並ぶ<sup class="cite"><a href="#s21">21</a></sup>。写真は皆田海岸だが浜の色はほぼ同じ。</p></div></div>
+      <div class="spot">{{IMG:minata2}}<div class="body"><div class="name">皆田 (みなた) 海岸 <span class="rain no">晴れ向き</span></div><div class="meta">北岸 · 干潮時に沖の岩へ歩いて渡れる</div><p>北側の小さな浜で、干潮時には岩礁の上を歩いて沖まで出られる。人が少なく、8 人で浜を独占できる可能性が高い。潮が引く 9/6 朝・9/7 午前が向く<sup class="cite"><a href="#s22">22</a></sup>。</p></div></div>
+      <div class="spot">{{IMG:beach}}<div class="body"><div class="name">ウドノスビーチ <span class="rain no">晴れ向き</span></div><div class="meta">西岸・茶花の北 · 空港から車 5 分 · 遊泳区域あり</div><p>茶花の町からいちばん近い遊泳ビーチ。波が穏やかで、沖に出るとシュノーケルもできる。夕日は西向きのこの浜かプリシアの兼母海岸で。</p></div></div>
+      <div class="spot">{{IMG:island_flickr}}<div class="body"><div class="name">寺崎海岸・トゥマイビーチ <span class="rain no">晴れ向き</span></div><div class="meta">北東岸 · 映画「めがね」(2007) のロケ地</div><p>荻上直子監督の映画『めがね』で小林聡美が「たそがれる」浜。木陰とベンチがあり、何もしないための場所。リーフの外に向かって断崖もある<sup class="cite"><a href="#s22">22</a></sup>。</p></div></div>
+      <div class="spot"><div class="no-photo">与論城跡</div><div class="body"><div class="name">与論城跡・地主神社 <span class="rain">雨OK</span></div><div class="meta">南部の高台 · 無料 · 15 分</div><p>1405〜16 年ごろ北山王の三男が築いた未完の城の石垣。上に地主 (トコヌシ) 神社と琴平神社。ここが十五夜踊りの舞台で、<b>晴れていれば沖縄本島が見える</b><sup class="cite"><a href="#s14">14</a></sup>。写真: <a href="https://www.google.com/maps/search/%E4%B8%8E%E8%AB%96%E5%9F%8E%E8%B7%A1/">Google マップ</a></p></div></div>
+      <div class="spot"><div class="no-photo">サザンクロス</div><div class="body"><div class="name">サザンクロスセンター <span class="rain">雨OK</span></div><div class="meta">与論城跡の隣 · 大人 400 円 · 40 分</div><p>島の歴史・芸能・民具の資料館 (1〜4F) と、5F の展望室。名前は与論で南十字星が見えることから (見えるのは 12〜6 月の明け方〜宵)。雨の日の第一候補<sup class="cite"><a href="#s24">24</a></sup>。写真: <a href="https://www.yorontou.info/spot/5161.html">観光協会</a> · <a href="https://www.google.com/maps/search/%E3%82%B5%E3%82%B6%E3%83%B3%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC+%E4%B8%8E%E8%AB%96/">Google マップ</a></p></div></div>
+      <div class="spot"><div class="no-photo">鍾乳洞</div><div class="body"><div class="name">赤崎鍾乳洞 <span class="rain">雨OK</span></div><div class="meta">南東部 · 500 円 · 15〜20 分 · 0997-97-2161</div><p>全長 120m。入口でヘルメットと懐中電灯を借りて自分で歩く。サンゴの化石が壁に見え、「千枚田」と呼ばれる段々の鍾乳石がある。天井が低く床が滑るので、濡れてもいい靴で<sup class="cite"><a href="#s23">23</a></sup>。臨時休業があるので前日に電話。写真: <a href="https://www.yorontou.info/spot/5169.html">観光協会</a> · <a href="https://www.google.com/maps/search/%E8%B5%A4%E5%B4%8E%E9%8D%BE%E4%B9%B3%E6%B4%9E/">Google マップ</a></p></div></div>
+      <div class="spot">{{IMG:yunnu}}<div class="body"><div class="name">与論民俗村 <span class="rain">雨OK</span></div><div class="meta">南部 · 有料 · 45 分〜</div><p>昭和 30 年代まで並んでいた茅葺き民家と琉球式の赤瓦民家を復元した屋外資料館。経営する菊さん一家が案内してお茶請けを出してくれる。草木染め・芭蕉布コースター織りの体験教室あり<sup class="cite"><a href="#s25">25</a></sup>。写真は同じ南部の庭園「ゆんぬ楽園」。</p></div></div>
+      <div class="spot">{{IMG:station1}}<div class="body"><div class="name">ヨロン駅 <span class="rain">雨OK</span></div><div class="meta">南西岸・与論港のそば · 無料</div><p>鉄道の無い島に立つ駅のモニュメント。駅名標には「おきなわ ← ヨロン → かごしま」。線路と車輪の向こうが海で、5 分で写真が撮れる。港の待合いと一緒に<sup class="cite"><a href="#s22">22</a></sup>。</p></div></div>
+      <div class="spot">{{IMG:chabana_aerial}}<div class="body"><div class="name">茶花 (ちゃばな) の町 <span class="rain">雨OK</span></div><div class="meta">西岸 · 役場・郵便局・スーパー・居酒屋が集まる</div><p>島で唯一の「町」。1970 年代の「茶花銀座」の面影は薄いが、居酒屋・スナック・スーパー・A コープ・郵便局 ATM はすべてここ。夜は 20 時を過ぎると人通りが消える。</p></div></div>
+      <div class="spot">{{IMG:seito}}<div class="body"><div class="name">与論島製糖と有村酒造 <span class="rain">雨OK</span></div><div class="meta">茶花 · 酒造の直売 8:00〜17:00 (日祝休) · 見学は要予約</div><p>サトウキビの島の 2 つの工場。製糖工場は冬〜春が操業期。有村酒造は 1947 年創業、島で唯一の黒糖焼酎蔵で「島有泉」を造る。製造期は 10〜6 月で、9 月は仕込みは見られないが直売はある<sup class="cite"><a href="#s29">29</a></sup>。</p></div></div>
+    </div>
+    <p class="muted" style="font-size:.88rem">与論城跡・サザンクロスセンター・赤崎鍾乳洞は、再配布できるライセンスの写真が Wikimedia Commons にも他の CC 画像源にも無かった。各カードのリンク先 (観光協会・Google マップ) で見る。</p>
+    <details><summary>写真の無い 3 か所の位置と行き方</summary>
+      <ul class="clean">
+        <li><b>与論城跡・サザンクロスセンター</b> — 島の南、県道の内側の高台。茶花から車 7 分、大金久から 10 分。駐車場はセンター側。</li>
+        <li><b>赤崎鍾乳洞</b> — 南東の赤崎集落。案内看板が小さいので、地図アプリで「赤崎鍾乳洞」を目的地に。</li>
+        <li><b>与論民俗村</b> — 南部の麦屋。与論城跡から車 5 分。営業日・時間は当日電話で確認 (観光協会 0997-97-5151 経由でも可)。</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- ============ 09 ============ -->
+  <section class="section" id="s09">
+    <div class="sec-head"><span class="n">09</span><h2>名物と食 — 何を食べ、何を持って行くか</h2><span class="lv">引く · 8 分</span></div>
+    <p>夕食 2 回は決まっているので、この章は<b>「昼に何を食べるか」「BBQ に何を持って行くか」「何を買って帰るか」</b>の 3 つに絞る。</p>
+    <h3>島の名物 8 つ</h3>
+    <div class="photos">
+      <figure class="photo">{{IMG:keihan}}<figcaption><b>鶏飯 (けいはん)</b> — 奄美群島の郷土料理。ご飯に鶏のほぐし身・錦糸卵・椎茸・パパイヤ漬・ネギを載せ、鶏の出汁をかけて食べる。与論では「ヨロンの味 たら」が定番<sup class="cite"><a href="#s22">22</a></sup>。{{CREDIT:keihan}}</figcaption></figure>
+      <figure class="photo">{{IMG:mozuku}}<figcaption><b>もずく</b> — 与論の海で養殖される太めのもずく。そば・天ぷら・佃煮・酢の物。もずくそばは「蒼い珊瑚礁」が有名<sup class="cite"><a href="#s26">26</a></sup>。{{CREDIT:mozuku}}</figcaption></figure>
+      <figure class="photo">{{IMG:amami_agemono}}<figcaption><b>島の揚げ物</b> — もずくの天ぷら、サーターアンダギー、よもぎの天ぷら。居酒屋の突き出しの顔ぶれ。{{CREDIT:amami_agemono}}</figcaption></figure>
+    </div>
+    <div class="photos">
+      <figure class="photo">{{IMG:kokuto_shochu}}<figcaption><b>黒糖焼酎</b> — 法律上、奄美群島だけが黒糖を原料に造れる焼酎。与論の銘柄は有村酒造の「島有泉」(20 度 720ml 1,375 円・35 度 2,035 円)<sup class="cite"><a href="#s29">29</a></sup>。写真は奄美各蔵の瓶。{{CREDIT:kokuto_shochu}}</figcaption></figure>
+      <figure class="photo">{{IMG:cider}}<figcaption><b>ヨロンブルーサイダー</b> — 島の土産の定番になった青いサイダー。空港売店・スーパーで買える。{{CREDIT:cider}}</figcaption></figure>
+      <figure class="photo">{{IMG:keihan2}}<figcaption>鶏飯の定食。具を全部載せてから出汁を回しかけ、さらさらと。{{CREDIT:keihan2}}</figcaption></figure>
+    </div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>名物</th><th>何か</th><th>どこで</th></tr></thead>
+      <tbody>
+        <tr><td><b>ヨロン黒牛</b></td><td>島で長期肥育した黒毛和牛。島内の居酒屋で焼き・刺し。BBQ の主役にすると盛り上がる</td><td>A コープ・スーパー「トップ」の精肉 (在庫は日次)</td></tr>
+        <tr><td><b>奄美黒ほろほろ鳥</b></td><td>ハーブ飼料で育てた「食鳥の女王」。刺し・炊き込み。居酒屋「ひょうきん」が看板<sup class="cite"><a href="#s26">26</a></sup></td><td>居酒屋 / 精肉は要事前注文</td></tr>
+        <tr><td><b>島有泉</b></td><td>黒糖焼酎。与論献奉はこれで回す</td><td>有村酒造直売 (日祝休)・スーパー・空港売店</td></tr>
+        <tr><td><b>黒糖・ピーナツ黒糖</b></td><td>島のサトウキビから。ピーナツ黒糖は「食べだしたら止まらない」系</td><td>スーパー・土産店・空港</td></tr>
+        <tr><td><b>きび酢・黄金酢</b></td><td>サトウキビの酢。常温で持ち帰れる土産</td><td>土産店 (よろん島奉菓はな 等)</td></tr>
+        <tr><td><b>島バナナ・パッションフルーツ</b></td><td>9 月は島バナナの季節。小さく酸味が強い</td><td>A コープ・直売所 (機内持ち込みで潰れないよう手荷物に)</td></tr>
+        <tr><td><b>プチムッチャー</b></td><td>よもぎをたっぷり練り込んだ深緑の餅。日持ちしないので島で食べる</td><td>スーパー・菓子店</td></tr>
+        <tr><td><b>もずくそば・鶏飯</b></td><td>昼の二枚看板</td><td>蒼い珊瑚礁 / ヨロンの味 たら (11:30〜14:00・要予約)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>与論献奉 (よろんけんぽう) — 初日の夜に回ってくる儀式</h3>
+    <p><b>大きな杯 (盃) に黒糖焼酎を注ぎ、主人が口上を述べて飲み干し、次の人に杯を渡す。受けた人も口上を述べて飲み干す。全員が回ったら主人が締めの口上で 1 巡が終わる</b><sup class="cite"><a href="#s30">30</a></sup>。1561 年に始まったとされる客人歓待の作法で、島の人と居酒屋で同席すると回ってくることがある。断るのは失礼にあたるが、<b>口上のあとに「飲めないので少しだけ」と言って量を減らすのは許される</b>。翌朝グラスボートに乗る人は、9/5 は 1 巡で止めるのが賢い。</p>
+    <h3>島でよく出る料理 — 見て覚える</h3>
+    <div class="photos">
+      <figure class="photo">{{IMG:okinawa_soba}}<figcaption><b>沖縄そば</b> — 与論の食堂にも「そば」はある。小麦の太麺にかつおと豚の出汁、三枚肉。もずくそばはこの麺にもずくを練り込んだもの。{{CREDIT:okinawa_soba}}</figcaption></figure>
+      <figure class="photo">{{IMG:goya}}<figcaption><b>ゴーヤーチャンプルー</b> — 居酒屋の定番。与論産ゴーヤーは苦味が強め。{{CREDIT:goya}}</figcaption></figure>
+      <figure class="photo">{{IMG:sata_andagi}}<figcaption><b>サーターアンダギー</b> — 黒糖入りの揚げ菓子。与論のは「ふわふわ食感と黒糖の風味」が売り<sup class="cite"><a href="#s26">26</a></sup>。{{CREDIT:sata_andagi}}</figcaption></figure>
+    </div>
+    <div class="photos">
+      <figure class="photo">{{IMG:umibudo}}<figcaption><b>海ぶどう</b> — 沖縄・奄美の海藻。プチプチの食感、ポン酢で。居酒屋の突き出しに出る。{{CREDIT:umibudo}}</figcaption></figure>
+      <figure class="photo">{{IMG:shima_banana}}<figcaption><b>島バナナ</b> — 9 月が旬。木で完熟させず、買って 2〜3 日置いて黒い斑点が出たら食べ頃。{{CREDIT:shima_banana}}</figcaption></figure>
+      <figure class="photo">{{IMG:dragon}}<figcaption><b>ドラゴンフルーツ</b> — 与論の特産品の筆頭。9 月は赤肉種の最盛期で、A コープに山積みになる<sup class="cite"><a href="#s26">26</a></sup>。{{CREDIT:dragon}}</figcaption></figure>
+    </div>
+
+    <h3>店のリスト — 食べログ直リンク付き</h3>
+    <p>与論町の食べログ掲載は 105 店<sup class="cite"><a href="#s44">44</a></sup>。夕食 2 回は決まっているので、<b>昼 2 回・カフェ・予備の夜</b>に使える店を挙げた。<b>店内や料理の写真は各店と食べログの著作物なのでこのページには焼き込まない</b>。リンク先の「写真」タブで見る。8 人で入る店は必ず前日までに電話。</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>店</th><th>何の店か</th><th>使いどころ</th><th>リンク</th></tr></thead>
+      <tbody>
+        <tr><td><b>ヨロンの味 たら</b></td><td>鶏飯・モリンガ麺 (創作料理)。11:30〜14:00 / 18:00〜20:00・要予約</td><td>9/6 昼の本命</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46000848/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46000848/dtlphotolst/">写真</a></td></tr>
+        <tr><td><b>蒼い珊瑚礁</b></td><td>食堂。もずくそば・もずく天ぷら定食。海沿い</td><td>9/6 or 9/7 昼</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46005164/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46005164/dtlphotolst/">写真</a></td></tr>
+        <tr><td><b>味咲 (みさき)</b></td><td>麺類・かき氷・沖縄料理。茶花</td><td>軽い昼・おやつ</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46007513/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46007513/dtlmenu/photo/">メニュー写真</a></td></tr>
+        <tr><td><b>芭蕉亭</b></td><td>食堂・郷土料理。カレー・定食。口コミ 22 件と島で最多級</td><td>9/7 昼 (茶花)</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46005158/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46005158/dtlphotolst/">写真</a></td></tr>
+        <tr><td><b>麺処 むすび</b></td><td>ラーメン。茶花</td><td>雨の日の昼</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46018015/">食べログ</a></td></tr>
+        <tr><td><b>EMBER COVE</b></td><td>ハンバーガー。那間 (北東)</td><td>寺崎・皆田の帰りに</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46019115/">食べログ</a></td></tr>
+        <tr><td><b>ゆんぬカフェ</b></td><td>自家焙煎コーヒーとデザート。観光協会 (ゆいパンタ) の隣・立長</td><td>プリシアから最寄りのカフェ</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46017915/">食べログ</a></td></tr>
+        <tr><td><b>カスタネット商店</b></td><td>カフェ。茶花</td><td>午後の休憩</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46014949/">食べログ</a></td></tr>
+        <tr><td><b>LITTLE BEACH 3540</b></td><td>カフェ。古里 (南)</td><td>与論城跡・民俗村の帰り</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46016854/">食べログ</a></td></tr>
+        <tr><td><b>居酒屋 ひょうきん</b></td><td>海鮮系居酒屋。奄美黒ほろほろ鳥の刺し。役場から 250m</td><td>予備の夜・与論献奉の場</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46000823/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46000823/dtlphotolst/">写真</a></td></tr>
+        <tr><td><b>かよい舟</b></td><td>居酒屋。島の魚と野菜の郷土料理 100 種超。ゆいパンタの建物内</td><td>予備の夜</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46005153/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46005153/dtlphotolst/">写真</a></td></tr>
+        <tr><td><b>旬彩 Tuk Tuk</b></td><td>創作居酒屋。個室あり</td><td>8 人で個室が要る時</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46011162/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46011162/dtlphotolst/">写真</a></td></tr>
+        <tr><td><b>食音酒場 MASAMUNU</b></td><td>居酒屋。与論・沖縄料理と泡盛。立長 (プリシア寄り)</td><td>徒歩圏の夜</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46017879/">食べログ</a></td></tr>
+        <tr><td><b>空港の「ブルースカイ」</b></td><td>軽食。席が少ない</td><td>復路直前</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="font-size:.88rem">与論町の店を一覧で見るなら <a href="https://tabelog.com/kagoshima/C46535/rstLst/">食べログ 与論町</a>、居酒屋だけなら <a href="https://tabelog.com/kagoshima/C46535/rstLst/izakaya/">居酒屋一覧</a>。点数は 3.0 台に固まっているので、口コミ件数と写真で選ぶ。</p>
+    <h3>BBQ の差し入れ — 島で買う 3 つと本土から持つ 1 つ</h3>
+    <p>島で買うなら<b>①島有泉 (1.8L の紙パックがスーパーにある)、②A コープのヨロン黒牛か島魚 (朝のうちに買う。夜は売り切れる<sup class="cite"><a href="#s28">28</a></sup>)、③島バナナ・パッションフルーツ</b>。本土から持って行くなら、島に無い<b>東京の菓子・クラフトビール</b>のような「島で手に入らないもの」が喜ばれる。氷は A コープかコンビニ「フロント」(8:30〜24:00)。</p>
+    <details><summary>島のスーパー・商店・薬局の営業時間 (8 軒)</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>店</th><th>種別</th><th>営業</th><th>電話</th></tr></thead>
+        <tbody>
+          <tr><td>全日食チェーン マソー</td><td>食品</td><td>7:00〜22:00 年中無休</td><td class="num">0997-97-2003</td></tr>
+          <tr><td>コンビニ フロント</td><td>島唯一のコンビニ型 (大手ではない)</td><td>8:30〜24:00</td><td class="num">0997-97-2816</td></tr>
+          <tr><td>A コープ よろん店</td><td>スーパー・ATM あり</td><td>9:00〜19:30</td><td class="num">0997-97-2004</td></tr>
+          <tr><td>ショッピングプラザ トップ 本店 / 花川店</td><td>スーパー</td><td>8:00〜20:00</td><td class="num">0997-97-4918 / 2813</td></tr>
+          <tr><td>オーシャンマーケット</td><td>食品・酒</td><td>8:00〜24:00 年中無休</td><td class="num">0997-97-4188</td></tr>
+          <tr><td>ニシムタ FC 与論店</td><td>ホームセンター (炭・着火剤・虫よけ)</td><td>7:00〜21:00</td><td class="num">0997-84-3456</td></tr>
+          <tr><td>くすりのてんてん堂</td><td>薬局</td><td>8:30〜19:30 (日 〜18:30)</td><td class="num">0997-97-5140</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted" style="font-size:.85rem">出典: ヨロン島観光ガイド「お店・スーパー・薬局」<sup class="cite"><a href="#s28">28</a></sup>。24 時間営業の店は島に無い。</p>
+    </details>
+  </section>
+
+  <!-- ============ 10 ============ -->
+  <section class="section" id="s10">
+    <div class="sec-head"><span class="n">10</span><h2>海の遊び方と安全 — 9 月の海は刺すものがいる</h2><span class="lv">必読 · 5 分</span></div>
+    <p><b>結論: 泳ぐならラッシュガード (長袖) とレギンス。素肌で海に入らない。</b>ハブクラゲの活動期は 6〜9 月で、まさに今。透明で見えず、浅い砂浜や湾内にも出る。沖縄では死亡例がある<sup class="cite"><a href="#s31">31</a></sup>。カツオノエボシ (青い浮き袋) は台風のあとに浜へ打ち上がるので、<b>9/6・9/7 は浜の波打ち際に青いビニール片のようなものがあったら触らない</b>。</p>
+    <div class="grid-2">
+      <div>
+        <h4>刺されたら</h4>
+        <ol class="steps">
+          <li>海から上がる。こすらない。</li>
+          <li><b>ハブクラゲ</b>: 酢 (食酢) をたっぷりかけて触手を弱らせ、触手を指でなくカードなどで取る。<b>カツオノエボシ</b>: 酢は逆効果、海水で洗い流す。真水は両方とも NG。</li>
+          <li>氷や冷水で冷やし、痛みが強い・息苦しい・動悸があれば与論徳洲会病院 (§11) へ。</li>
+        </ol>
+      </div>
+      <div>
+        <h4>そのほかの決まり</h4>
+        <ul class="clean">
+          <li>遊泳はクラゲ防止ネットのある区域か、ライフガードのいるビーチで。ウドノス・大金久が該当。</li>
+          <li><b>百合ヶ浜へ泳いで渡らない</b>。潮の流れで事故が起きている<sup class="cite"><a href="#s21">21</a></sup>。</li>
+          <li>リーフの上を歩かない (サンゴを踏む・鋭い縁で切る)。マリンシューズ推奨。</li>
+          <li>日焼け止めは「サンゴに優しい (reef safe)」表示のもの。紫外線は東京の 9 月の 1.5 倍。</li>
+          <li>台風後は浜に流木・漂着物が増え、海は濁る。9/6 午前の透明度は期待しない。</li>
+          <li>与論に<b>ハブ (毒蛇) はいない</b> (奄美大島・徳之島にはいる)。夜道の心配は蛇より街灯の無さ。</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="photo">{{IMG:sea}}<figcaption>リーフ内の浅い海。この透明度のまま、見えないクラゲがいる。{{CREDIT:sea}}</figcaption></figure>
+  </section>
+
+  <!-- ============ 11 ============ -->
+  <section class="section" id="s11">
+    <div class="sec-head"><span class="n">11</span><h2>島の実務 — 移動・現金・電波・病院・星</h2><span class="lv">引く · 6 分</span></div>
+    <h3>8 人の移動 — レンタカー 2 台が現実解</h3>
+    <p>島内に路線バスはあるが本数が少なく、タクシーは南陸運 1 社。<b>8 人なら軽自動車 2 台 (5,000〜6,000 円/日) か、普通車 1 台 + 軽 1 台</b>。各社とも空港・港・宿まで無料送迎があり、営業所は空港から 3 分以内。9 月 4 日夜の時点で予約メールが無いので、<b>まだなら今夜 Web か明朝の電話で押さえる</b>。9/5 は土曜で、当日の飛び込みは断られることがある。</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>会社</th><th>特徴</th><th>電話 / 予約</th></tr></thead>
+      <tbody>
+        <tr><td>南国レンタカー</td><td>老舗。全車ナビ付き、カード・スマホ決済可。受付 8:00〜17:00<sup class="cite"><a href="#s34">34</a></sup></td><td class="num">0997-97-2141</td></tr>
+        <tr><td>野口レンタカー</td><td>軽 5,000 円/日・普通車 10,000 円/日 (税込)。整備工場が親会社<sup class="cite"><a href="#s34">34</a></sup></td><td>Web 予約</td></tr>
+        <tr><td>コロレンタカー</td><td>「島内最安値」を掲げる。3 日前から 50%・当日 100% のキャンセル料<sup class="cite"><a href="#s34">34</a></sup></td><td>Web 予約</td></tr>
+        <tr><td>与論島サンセットレンタカー</td><td>空港から徒歩 1 分・港から徒歩 10 分</td><td>Web 予約</td></tr>
+        <tr><td>南陸運 タクシー部</td><td>島唯一のタクシー。観光タクシー (ヨロン観光タクシー) も同社</td><td class="num">0997-97-3331</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><div class="t">運転の注意</div>島を 1 周する県道は 1 車線ずつで、制限速度 40km/h。集落の中は道が狭く、サトウキビ運搬のトラックとすれ違う。ガソリンスタンドは茶花周辺に数軒で日曜は早じまい。返却前の給油は土曜に。夜はほぼ真っ暗で、ヤギや猫が飛び出す。</div>
+
+    <h3>現金と ATM — 島は「現金が半分」</h3>
+    <p>居酒屋・食堂・グラスボート・鍾乳洞は現金のみの所が残る。<b>1 人 2〜3 万円の現金</b>を本土で用意しておくのが安全。島の ATM は 6 か所で、旅行者が使いやすいのは<b>与論郵便局 (茶花、平日 8:00〜19:00・土 9:00〜19:00・日祝 9:00〜18:00) と A コープ (9:00〜19:30)</b>。空港に ATM は無い<sup class="cite"><a href="#s27">27</a></sup><sup class="cite"><a href="#s32">32</a></sup>。</p>
+    <h3>電波・電気</h3>
+    <p>大手 3 社とも島内はほぼ圏内で、茶花と空港周辺は 5G も入る。リーフの沖 (百合ヶ浜) と鍾乳洞の中は圏外。プリシアの Wi-Fi は「ロビー中心」の口コミがあるので、部屋で仕事をする前提なら<b>テザリング</b>を当てにする。コンセントは普通の 2 口。</p>
+    <h3>病院・緊急</h3>
+    <div class="tbl-wrap"><table>
+      <tbody>
+        <tr><td><b>与論徳洲会病院</b></td><td>島唯一の病院。救急対応あり (1996 年開設)<sup class="cite"><a href="#s37">37</a></sup>。重症はヘリで沖縄か鹿児島へ搬送</td><td class="num">0997-97-2311</td></tr>
+        <tr><td><b>くすりのてんてん堂</b></td><td>薬局。酔い止め・虫刺され・日焼け</td><td class="num">0997-97-5140</td></tr>
+        <tr><td><b>ヨロン島観光協会</b></td><td>観光案内所 (ゆいパンタ内)。8:30〜。百合ヶ浜の当日情報・パナウル王国パスポート (700 円)<sup class="cite"><a href="#s36">36</a></sup></td><td class="num">0997-97-5151</td></tr>
+        <tr><td><b>与論町役場</b></td><td>台風時の避難情報は町の防災無線と役場サイト</td><td class="num">0997-97-3111</td></tr>
+        <tr><td><b>与論空港管理事務所</b></td><td>空港施設の問い合わせ<sup class="cite"><a href="#s32">32</a></sup></td><td class="num">0997-97-3465</td></tr>
+      </tbody>
+    </table></div>
+    <h3>光と星</h3>
+    <p>日の出 6:06〜6:07、日の入 18:43〜18:40<sup class="cite"><a href="#s8">8</a></sup>。日の入りは東京より約 45 分遅い。月齢は 9/5 に 23、9/7 に 25 で、<b>月の出は深夜 0 時〜1 時半</b>。つまり 3 晩とも夜 19 時から 24 時まで月が無く、雲さえ切れれば天の川が南西の空に立つ。島に高い建物が無く、プリシアの浜か大金久の駐車場が暗くて広い。BBQ の 9/6 夜、庭の照明を一度消してもらうだけで十分。</p>
+    <div class="photos two">
+      <figure class="photo">{{IMG:town_center}}<figcaption>茶花の町なか。役場・郵便局・スーパーがこの一帯に集まる。{{CREDIT:town_center}}</figcaption></figure>
+      <figure class="photo">{{IMG:chabana_port}}<figcaption>茶花漁港。港前のカフェは夜まで開く数少ない店。{{CREDIT:chabana_port}}</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ 12 ============ -->
+  <section class="section" id="s12">
+    <div class="sec-head"><span class="n">12</span><h2>持ち物リスト — 今夜詰める</h2><span class="lv">必読 · 5 分</span></div>
+    <p>チェックはこのページに保存される (このブラウザだけ)。<b>太字は「無いと旅程が壊れる」もの</b>。雨と台風を前提に、濡れる前提の荷造りにしてある。</p>
+    <div class="check" id="checklist">
+      <h4>書類・金</h4>
+      <label><input type="checkbox"> <span><b>身分証 (運転免許証)</b> <span class="why">— レンタカーとホテルのチェックイン</span></span></label>
+      <label><input type="checkbox"> <span><b>JAL アプリにログイン・{{PV:p06|自分の予約}}を表示できる</b></span></label>
+      <label><input type="checkbox"> <span>航空券番号のメモ{{PV:p07|}}</span></label>
+      <label><input type="checkbox"> <span>Trip.com の予約確認 (スクショ)</span></label>
+      <label><input type="checkbox"> <span><b>現金 2〜3 万円 / 人</b> <span class="why">— 現金のみの店とグラスボート</span></span></label>
+      <label><input type="checkbox"> <span>クレジットカード (Amex は使えない店あり。Visa/Master も)</span></label>
+      <label><input type="checkbox"> <span>健康保険証 (マイナ保険証可)</span></label>
+      <h4>海</h4>
+      <label><input type="checkbox"> <span><b>ラッシュガード (長袖) + レギンス</b> <span class="why">— ハブクラゲ・日焼け</span></span></label>
+      <label><input type="checkbox"> <span>水着・速乾タオル 2 枚</span></label>
+      <label><input type="checkbox"> <span>マリンシューズ (鍾乳洞・岩場・皆田海岸でも使う)</span></label>
+      <label><input type="checkbox"> <span>シュノーケルセット (レンタルもあるが自前ならフィットする)</span></label>
+      <label><input type="checkbox"> <span>reef safe の日焼け止め・帽子・サングラス</span></label>
+      <label><input type="checkbox"> <span>防水スマホケース・ジップ袋 (星砂・濡れ物)</span></label>
+      <h4>雨・台風</h4>
+      <label><input type="checkbox"> <span><b>レインウェア上下</b> <span class="why">— 傘は風で壊れる</span></span></label>
+      <label><input type="checkbox"> <span>折りたたみ傘 (町なか用)</span></label>
+      <label><input type="checkbox"> <span>濡れた服を入れる袋・圧縮袋</span></label>
+      <label><input type="checkbox"> <span>サンダル + 濡れてもいい靴の 2 足</span></label>
+      <h4>電子機器</h4>
+      <label><input type="checkbox"> <span><b>モバイルバッテリー (機内持ち込み・手元に)</b></span></label>
+      <label><input type="checkbox"> <span>充電ケーブル・充電器</span></label>
+      <label><input type="checkbox"> <span>イヤホン (プロペラ機は騒音が大きい)</span></label>
+      <label><input type="checkbox"> <span>テザリング可の回線設定を確認</span></label>
+      <h4>薬・体</h4>
+      <label><input type="checkbox"> <span>酔い止め (Q400 は揺れる・グラスボートも)</span></label>
+      <label><input type="checkbox"> <span>胃薬・頭痛薬・絆創膏</span></label>
+      <label><input type="checkbox"> <span>虫よけ・かゆみ止め (BBQ の夜は蚊が出る)</span></label>
+      <label><input type="checkbox"> <span>常備薬・コンタクト予備</span></label>
+      <h4>BBQ・そのほか</h4>
+      <label><input type="checkbox"> <span>本土からの手土産 (島に無いもの)</span></label>
+      <label><input type="checkbox"> <span>薄手の長袖 (夜のビーチ・機内の冷房)</span></label>
+      <label><input type="checkbox"> <span>星砂を持ち帰る小瓶</span></label>
+      <label><input type="checkbox"> <span>このページのオフライン保存 (スマホで「共有 → PDF」)</span></label>
+    </div>
+    <div class="export-bar"><button class="export-btn" onclick="resetChecks(this)">チェックを全部外す</button></div>
+  </section>
+
+  <!-- ============ 13 ============ -->
+  <section class="section" id="s13">
+    <div class="sec-head"><span class="n">13</span><h2>もしもの時 — 欠航・遅延・延泊</h2><span class="lv">必読 · 6 分</span></div>
+    <h3>ケース A: 9/5 朝、JL907 か RAC815 に「!」(欠航決定)</h3>
+    <ol class="steps">
+      <li>JAL アプリ → 予約詳細 → 「変更」。悪天候の特別対応中は<b>手数料なし・運賃差額なし</b>で同区間の別日に振替できる<sup class="cite"><a href="#s9">9</a></sup>。第一候補は 9/6 の同じ便 (JL907 + RAC815)。</li>
+      <li>プリシアに電話 (0997-97-5060) して「9/6 チェックインに変更、9/5 分はキャンセル」を伝える。<b>払戻不可の予約だが、台風欠航は交渉の余地がある</b>。Trip.com のチャットサポート (約 30 秒で応答) にも並行で連絡し、JAL の欠航証明 (Web で発行できる) を添える。</li>
+      <li>同行者と連絡。8 人全員が同じ便かは要確認。</li>
+    </ol>
+    <h3>ケース B: 那覇まで来て RAC815 が欠航</h3>
+    <ol class="steps">
+      <li>那覇空港の JAL カウンターで翌日 RAC815 への振替。<b>RAC は 1 日 1 往復</b>なので当日中の代替便は無い<sup class="cite"><a href="#s40">40</a></sup>。</li>
+      <li>那覇で 1 泊。空港から国際通りまでモノレール 15 分。台風で市内のホテルも埋まるので、<b>カウンターに並ぶ前に 1 人がスマホで宿を押さえる</b>。</li>
+      <li>代替ルートの検討: マルエーフェリー / マリックスラインの那覇発 (通常 07:00 発・与論 11:50 着) は台風で欠航しやすいが、翌朝の空が回復していれば 4 時間 50 分で島に着く。</li>
+      <li>JAL の宿泊補償は「機材故障など JAL 側の理由」の時だけで、<b>台風は自己負担</b>。旅行保険 (クレジットカード付帯) の「航空機遅延費用」が使えるか、カード会社に電話。</li>
+    </ol>
+    <h3>ケース C: 9/7 に帰りの便が飛ばない</h3>
+    <ol class="steps">
+      <li>台風は 9/7 に南大東島近海 (那覇の東 400km) で、与論⇄那覇は飛ぶ可能性が高い。飛ばない場合は<b>9/8 の RAC816 + JL916</b> へ振替。</li>
+      <li>延泊はプリシアに当日相談 (9 月上旬の平日なら空きは見込める)。同行者の親戚宅が近いのは心強い。</li>
+      <li>9/8 (火) の仕事は「与論から Teams」を前提に、この可能性を 9/4 のうちに関係者へ一言入れておく。</li>
+    </ol>
+    <h3>ケース C を詳しく — 与論で足止めされた最初の 24 時間</h3>
+    <p><b>順番が大事。宿 → 便 → 会社 → 保険 → 現金と食料。</b>島の宿は少なく、同じ便の乗客全員が同時に動くので、宿だけは欠航の一報の瞬間に押さえる。</p>
+    <ol class="steps">
+      <li><b>宿を先に</b> — 与論空港の JAL カウンターに並ぶ前に、1 人がプリシアのフロントへ延泊を申し込む (フロントで直接。予約サイト経由より早い)。満室なら観光協会 (0997-97-5151、8:30〜) に電話。民宿・ゲストハウスの空きを探してくれる。</li>
+      <li><b>便の振替</b> — JAL アプリ「予約管理」→ 対象便 →「変更」。欠航便は手数料・差額なしで同区間の別日に振替できる<sup class="cite"><a href="#s45">45</a></sup>。RAC816 は 1 日 1 便なので翌 9/8 便へ。満席なら「空席待ち」を登録し、並行して<b>与論 → 鹿児島 (JAL) → 羽田</b>の組み替えを検索する。9/8 の便が飛ぶ見込みは、台風が 9/8 15 時に熱帯低気圧へ変わる予報<sup class="cite"><a href="#s3">3</a></sup>から「高い」。</li>
+      <li><b>欠航証明書</b> — 欠航確定後に JAL アプリ / Web で PDF が出る (メール送付も可)<sup class="cite"><a href="#s45">45</a></sup>。保険と会社への提出用。宿の領収書も全部取っておく。</li>
+      <li><b>会社・家族</b> — 9/8 (火) の予定は「与論から Teams」に切り替える。プリシアの Wi-Fi はロビー中心なのでテザリング前提。電波は島内ほぼ圏内 (§11)。</li>
+      <li><b>保険</b> — クレジットカード付帯の旅行保険に「航空機遅延費用」があれば、欠航による宿泊・食事の実費が出る (多くは 1 事故 2〜4 万円が上限、出発前にカードで航空券を払っていることが条件)。カード裏面の保険デスクに電話し、欠航証明と領収書を後日送る。JAL からの宿泊補償は<b>台風では出ない</b>。</li>
+      <li><b>現金と食料</b> — フェリーが止まると島の物資が減り、スーパーは営業を短縮する。郵便局 ATM (茶花) で現金を足し、水と 2 食分の食料を確保。停電に備えてモバイルバッテリーを満充電に。</li>
+      <li><b>安全</b> — プリシアは海沿いの低地なので、高潮・高波の警報が出たら海側の窓から離れる。避難情報は与論町の防災無線と役場 (0997-97-3111)。屋外に出ない。</li>
+    </ol>
+    <h4>フェリーという逃げ道 — ただし船は飛行機より先に止まる</h4>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>航路</th><th>与論港 発 → 着</th><th>2 等運賃 (燃油込)</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>与論 → 本部 → 那覇</td><td class="num">12:10 → 本部 16:40 / 那覇 19:00</td><td class="num">5,330 円</td><td>那覇で 1 泊して翌朝の羽田便へ。マルエー / マリックスの交替運航<sup class="cite"><a href="#s46">46</a></sup></td></tr>
+        <tr><td>与論 → 鹿児島新港</td><td class="num">14:10 → 翌 08:30</td><td class="num">16,350 円</td><td>船中泊 18 時間。鹿児島から羽田は JAL / ANA / SKY で多数</td></tr>
+      </tbody>
+    </table></div>
+    <p>予約なしでも乗れるが出港 30 分前までに港の窓口で手続き。<b>台風・高波では飛行機より早く、長く欠航する</b>ので、フェリーは「台風が抜けた翌日に飛行機が満席だった時」の手段<sup class="cite"><a href="#s46">46</a></sup>。港の窓口: マルエー = 有村運送 0997-97-3251、マリックス = 竜野運送 0997-97-3151。</p>
+    <h4>足止め 1 日の費用の目安 (2 人)</h4>
+    <div class="tbl-wrap"><table>
+      <tbody>
+        <tr><td>プリシア延泊 (2 名・朝食付)</td><td class="num">3〜5 万円</td><td>9 月平日の実勢。民宿なら 1 万円台</td></tr>
+        <tr><td>食事 (昼・夜)</td><td class="num">6,000〜1 万円</td><td>台風時は営業する店が減る</td></tr>
+        <tr><td>レンタカー延長</td><td class="num">5,000〜6,000 円</td><td>返却延長は電話で可。台風時は外出しないなら返す</td></tr>
+        <tr><td>振替便</td><td class="num">0 円</td><td>欠航による振替は無料</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>払戻の期限</h3>
+    <p>特別対応で払戻す場合、<b>もともとの出発日 + 40 日</b>が期限 (今回のセイバー運賃は予約変更不可の運賃なのでこちらが適用)<sup class="cite"><a href="#s9">9</a></sup>。JAL Web で払戻できない航空券は、国内線払戻専用フォームから。</p>
+  </section>
+
+  <!-- ============ 14 ============ -->
+  <section class="section" id="s14">
+    <div class="sec-head"><span class="n">14</span><h2>予約番号・連絡先 — スマホで見る用</h2><span class="lv">必読 · 1 分</span></div>
+    <pre class="plain" id="resv">{{PV:p08|■ 航空 (JAL グループ・予約番号は各自のメールで)}}
+  9/5(土) JL907  羽田 08:40 → 那覇 11:15
+  9/5(土) RAC815 那覇 13:15 → 与論 13:55   (JAL 表記 NU815)
+  9/7(月) RAC816 与論 14:25 → 那覇 15:00
+  9/7(月) JL916  那覇 17:45 → 羽田 20:15
+{{PV:p09|}}
+■ 宿{{PV:p10|}}
+  プリシアリゾートヨロン  9/5 IN 15:00 → 9/7 OUT 10:00
+{{PV:p11|  朝食 9/6・9/7 (07:00〜10:00 ビュッフェ)
+}}  〒891-9302 鹿児島県大島郡与論町立長 358-1   TEL 0997-97-5060
+{{PV:p12|  8/21 17:00 以降は払戻不可の予約
+}}
+■ 島の電話
+  ヨロン島観光協会 0997-97-5151   与論徳洲会病院 0997-97-2311
+  南陸運タクシー 0997-97-3331     南国レンタカー 0997-97-2141
+  赤崎鍾乳洞 0997-97-2161         有村酒造 0997-97-2302
+  与論町役場 0997-97-3111         与論空港管理事務所 0997-97-3465
+
+■ 判定リンク
+  JAL 運航状況  https://www.jal.co.jp/jp/ja/dom/serviceinfo/
+  台風24号      https://tenki.jp/bousai/typhoon/2624/
+  百合ヶ浜予測  https://www.yorontou.info/spot/5112.html
+  与論 潮見表   https://tide.chowari.jp/46/465356/24795/</pre>
+    <div class="export-bar"><button class="export-btn" onclick="copyText(this)">この予約情報をコピー</button></div>
+    <figure class="photo">{{IMG:station2}}<figcaption>「おきなわ ← ヨロン → かごしま」。ヨロン駅の駅名標。{{CREDIT:station2}}</figcaption></figure>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section class="section" id="sources">
+    <div class="sec-head"><span class="n">出典</span><h2>Sources</h2></div>
+    <ol class="sources">
+      <li id="s1">JAL「購入内容のお知らせ 9月5日 JAL907便」(Gmail 2026-08-16) および「機内持ち込み手荷物に関するお願い」「羽田空港からご利用のお客さまへ」(2026-09-04)</li>
+      <li id="s2">Trip.com「プリシアリゾートヨロンのご予約の確認が完了しました」(Gmail 2026-08-15)、「ホテル確認番号が提供されました」(2026-08-16)</li>
+      <li id="s3">tenki.jp 台風24号 (2026年) 最新位置・進路予想 (2026-09-04 18:45 発表) <a href="https://tenki.jp/bousai/typhoon/2624/">tenki.jp/bousai/typhoon/2624/</a></li>
+      <li id="s4">ウェザーニュース 与論町の 2 週間天気 (2026-09-04 閲覧) <a href="https://weathernews.jp/onebox/tenki/kagoshima/46535/week.html">weathernews.jp</a></li>
+      <li id="s5">ヨロン島観光ガイド「百合ヶ浜の情報、行き方・出現カレンダー」 <a href="https://www.yorontou.info/spot/5112.html">yorontou.info/spot/5112.html</a></li>
+      <li id="s6">ヨロン島観光ガイド「百合ヶ浜の最新情報」(2026-04) <a href="https://www.yorontou.info/topics/21984.html">yorontou.info/topics/21984.html</a></li>
+      <li id="s7">与論港の潮見表・タイドグラフ 2026 <a href="https://tide.chowari.jp/46/465356/24795/">tide.chowari.jp</a></li>
+      <li id="s8">与論町の潮汐・日の出日の入 <a href="https://choseki.com/jp/kagoshima/yoron">choseki.com</a></li>
+      <li id="s9">JAL FAQ「悪天候や自然災害が発生した場合、手数料なしで予約変更や払い戻しができる対象か確認する方法」 <a href="https://faq-jp.jal.co.jp/ja/s/article/jdsp000000R0000000029674dom">faq-jp.jal.co.jp</a></li>
+      <li id="s10">JTB プリシアリゾートヨロン アクセス・送迎情報 <a href="https://www.jtb.co.jp/kokunai-hotel/htl/8635005/access/">jtb.co.jp</a></li>
+      <li id="s11">プリシアリゾートヨロン 公式サイト <a href="https://www.pricia.co.jp/">pricia.co.jp</a>、トリップアドバイザー口コミ</li>
+      <li id="s12">琉球エアーコミューター「機内持ち込みお手荷物について」 <a href="https://rac-okinawa.com/">rac-okinawa.com</a></li>
+      <li id="s13">JAL 国内線 機内持ち込みお手荷物 (100 席未満の機材は 3 辺の和 100cm) <a href="https://www.jal.co.jp/jp/ja/dom/baggage/inflight/">jal.co.jp</a></li>
+      <li id="s14">ヨロン島観光ガイド「ヨロン島の基礎知識〜地勢、歴史、伝統・文化」 <a href="https://www.yorontou.info/about/knowledge.html">yorontou.info/about/knowledge.html</a></li>
+      <li id="s15">Wikipedia「与論島」 <a href="https://ja.wikipedia.org/wiki/%E4%B8%8E%E8%AB%96%E5%B3%B6">ja.wikipedia.org</a></li>
+      <li id="s16">ねりやかなや「与論島を知る」(人口は 2026 年 2 月末) <a href="https://www.neriyakanaya.jp/contents/yoron_basic">neriyakanaya.jp</a></li>
+      <li id="s17">奄美新聞「24年奄美群島入込・入域客数」(2025-04-01) <a href="https://amamishimbun.co.jp/2025/04/01/55422/">amamishimbun.co.jp</a></li>
+      <li id="s18">鹿児島大学「与論島における観光再生の現状」 <a href="https://ir.kagoshima-u.ac.jp/record/788/files/AN1013531X_v52_p21-30.pdf">ir.kagoshima-u.ac.jp</a></li>
+      <li id="s19">みらい経営者 ONLINE「〈与論〉どうすれば観光 × 環境は両立できるのか?」 <a href="https://www.miraic.jp/online/sdgs/12075.html">miraic.jp</a></li>
+      <li id="s20">ヨロン島観光ガイド「ヨロンパナウル王国について」 <a href="https://www.yorontou.info/panauru.html">yorontou.info/panauru.html</a></li>
+      <li id="s21">ジャキ旅「百合ヶ浜の出現日と行き方」 <a href="https://jacky.top/yoron/yoron-tourism/yurigahama">jacky.top</a>、VELTRA ヨロン島シーマンズクラブ</li>
+      <li id="s22">しろくまツアー「与論島旅行の2泊3日モデルコース」 <a href="https://www.wbf.co.jp/kyushu/special/yoron_modelcourse/">wbf.co.jp</a></li>
+      <li id="s23">ビーウェーブ「赤崎鍾乳洞」 <a href="https://bewave.jp/yoron/spot/akasakisyonyudo.html">bewave.jp</a></li>
+      <li id="s24">じゃらん「サザンクロスセンター」 <a href="https://www.jalan.net/kankou/spt_46535ad3352025814/">jalan.net</a></li>
+      <li id="s25">るるぶ&more「与論民俗村」 <a href="https://rurubu.jp/andmore/spot/80042374">rurubu.jp</a></li>
+      <li id="s26">ヨロン島観光ガイド「ヨロン島の特産品」 <a href="https://www.yorontou.info/specialty.html">yorontou.info/specialty.html</a></li>
+      <li id="s27">ヨロン島観光ガイド「ヨロン島の ATM 情報」 <a href="https://www.yorontou.info/safe-travel/atm.html">yorontou.info</a></li>
+      <li id="s28">ヨロン島観光ガイド「お店・スーパー・薬局」 <a href="https://www.yorontou.info/safe-travel/shop.html">yorontou.info</a></li>
+      <li id="s29">ヨロン島観光ガイド「有村酒造」、ヨロン Fun「有村酒造」 <a href="https://www.yorontou.info/spot/5222.html">yorontou.info/spot/5222.html</a></li>
+      <li id="s30">ビーウェーブ「与論献奉」 <a href="https://bewave.jp/yoron/spot/yoronkenpo.html">bewave.jp</a></li>
+      <li id="s31">おきなわ物語「海の危険生物! ハブクラゲなどにご注意ください」 <a href="https://www.okinawastory.jp/news/notice/1082">okinawastory.jp</a></li>
+      <li id="s32">JAL 与論空港 空港情報 <a href="https://www.jal.co.jp/jp/ja/dom/airport/rnj/">jal.co.jp</a>、YORON MEDIA「与論空港の情報まとめ」 <a href="https://amada-yoron.com/media/2023/06/0619_01/">amada-yoron.com</a></li>
+      <li id="s33">沖縄ラボ「那覇空港『空港食堂』」 <a href="https://okinawa-labo.com/naha-airport-buffet-6187">okinawa-labo.com</a></li>
+      <li id="s34">南国レンタカー <a href="https://yoron-nangoku.com/">yoron-nangoku.com</a>、野口レンタカー <a href="https://noguchi-rental-car.com/">noguchi-rental-car.com</a>、コロレンタカー <a href="http://cororentaka.com/">cororentaka.com</a></li>
+      <li id="s35">マピオン電話帳「南陸運株式会社 タクシー部」</li>
+      <li id="s36">ヨロン島観光ガイド「観光案内所・お問い合わせ」 <a href="https://www.yorontou.info/contact.html">yorontou.info/contact.html</a></li>
+      <li id="s37">徳洲会グループ「与論徳洲会病院」 <a href="https://www.tokushukai.or.jp/remote/yoron/">tokushukai.or.jp</a></li>
+      <li id="s38">CiNii「与論島シゴー東側海岸潮間帯のサンゴ類: 白化現象からの回復」、WWF「ヨロン島とサンゴ礁」</li>
+      <li id="s39">福井新聞「台風24号 気象庁の予想進路、米軍・ヨーロッパの見方 沖縄、奄美近くで迷走」(2026-09-03) <a href="https://www.fukuishimbun.co.jp/articles/-/2687192">fukuishimbun.co.jp</a></li>
+      <li id="s40">ビーウェーブ「那覇空港→与論空港 琉球エアコミューターで与論島へ」 <a href="https://bewave.jp/yoron/access/nahaairport-yoronairport.html">bewave.jp</a></li>
+      <li id="s41">JAL「国内線 乗り継ぎのご案内」 <a href="https://www.jal.co.jp/jp/ja/dom/boarding/onto/">jal.co.jp</a>、S TRAVEL「那覇空港で他社から JAL へ乗り継ぐ方法」 <a href="https://shuntarokun.com/entry/nahaexchange">shuntarokun.com</a></li>
+      <li id="s42">ANA FESTA 那覇空港 店舗一覧 <a href="https://www.anafesta.com/airports/oka/">anafesta.com</a></li>
+      <li id="s43">じゃらんニュース「那覇空港で買えるお土産おすすめ 27 選 (2026)」 <a href="https://www.jalan.net/news/article/646891/">jalan.net</a></li>
+      <li id="s44">食べログ 大島郡与論町の飲食店一覧 <a href="https://tabelog.com/kagoshima/C46535/rstLst/">tabelog.com</a></li>
+      <li id="s45">JAL FAQ「国内線 予約していた便が遅延・欠航した場合、JAL Web サイトで変更・払い戻しはできますか」 <a href="https://faq-jp.jal.co.jp/ja/s/article/jdsp000000R0000000029676dom">faq-jp.jal.co.jp</a>、「お手続き方法のご案内 (遅延、欠航)」 <a href="https://www.jal.co.jp/jp/ja/dom/change/irregular/webguidance/">jal.co.jp</a></li>
+      <li id="s46">ねりやかなや「与論島へのフェリーでのアクセス」(時刻・運賃は 2026 年 8〜10 月期) <a href="https://www.neriyakanaya.jp/contents/yoron_ferry">neriyakanaya.jp</a></li>
+    </ol>
+    <details><summary>写真の出典 (Wikimedia Commons · 全 32 枚の作者とライセンス)</summary>
+      <ul class="clean" style="font-size:.85rem">{{CREDITS_LIST}}</ul>
+      <p class="muted" style="font-size:.82rem">写真はすべて Wikimedia Commons から取得し、各ライセンス (CC BY / CC BY-SA / パブリックドメイン / CC0) の条件に従って帰属を表示している。加工は縮小のみ。</p>
+    </details>
+  </section>
+
+  <footer class="colophon">BUILT — 2026-09-04 · html-explainer v2.3 (aspect: 島の航海日誌 / tide-almanac) · 情報は 2026-09-04 夜時点。台風・便・百合ヶ浜は出発前に必ず再確認。</footer>
+</div>
+<nav class="side-toc">
+  <div class="t">CONTENTS</div>
+  <a href="#storm">⚠ 台風24号</a>
+  <a href="#s01">01 出発前チェック</a>
+  <a href="#s02">02 移動の全行程</a>
+  <a href="#s03">03 島の概要</a>
+  <a href="#s04">04 島の歴史</a>
+  <a href="#s05">05 観光情勢</a>
+  <a href="#s06">06 プリシア</a>
+  <a href="#s07">07 3 日間プラン</a>
+  <a href="#s08">08 スポット図鑑</a>
+  <a href="#s09">09 名物と食</a>
+  <a href="#s10">10 海と安全</a>
+  <a href="#s11">11 島の実務</a>
+  <a href="#s12">12 持ち物</a>
+  <a href="#s13">13 もしもの時</a>
+  <a href="#s14">14 予約まとめ</a>
+  <a href="#sources">出典</a>
+</nav>
+</div>
+
+<script>
+  function flashBtn(btn, ok){ var o = btn.dataset.orig || btn.textContent; btn.dataset.orig=o; btn.textContent= ok||'コピー済み ✓'; btn.classList.add('copied'); btn.disabled=true; setTimeout(function(){btn.textContent=o; btn.classList.remove('copied'); btn.disabled=false;},1200); }
+  function copyToClipboard(text, btn, msg){ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){ if(btn) flashBtn(btn,msg); }); } else { var ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); if(btn) flashBtn(btn,msg);}finally{document.body.removeChild(ta);} } }
+  function copyText(btn){ copyToClipboard(document.getElementById('resv').textContent, btn); }
+  /* checklist persistence (localStorage, per browser) */
+  (function(){
+    var KEY='yoron-2026-09-checklist';
+    var boxes=document.querySelectorAll('#checklist input[type=checkbox]');
+    var saved={}; try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+    boxes.forEach(function(b,i){
+      if(saved[i]){ b.checked=true; b.parentElement.classList.add('done'); }
+      b.addEventListener('change',function(){
+        b.parentElement.classList.toggle('done', b.checked);
+        var s={}; boxes.forEach(function(x,j){ if(x.checked) s[j]=1; });
+        try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){}
+      });
+    });
+    window.resetChecks=function(btn){ boxes.forEach(function(b){ b.checked=false; b.parentElement.classList.remove('done'); }); try{ localStorage.removeItem(KEY); }catch(e){} flashBtn(btn,'外しました'); };
+  })();
+  /* side toc active */
+  (function(){
+    var links=document.querySelectorAll('.side-toc a'); if(!links.length) return;
+    var map={}; links.forEach(function(a){ var id=a.getAttribute('href').slice(1); var el=document.getElementById(id); if(el) map[id]=a; });
+    if(!('IntersectionObserver' in window)) return;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(l){l.classList.remove('active');}); var a=map[e.target.id]; if(a) a.classList.add('active'); } }); },{rootMargin:'-20% 0px -70% 0px'});
+    Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+  })();
+</script>
+</body>
+</html>
