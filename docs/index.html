@@ -138,7 +138,9 @@
   .nav-toc{display:flex; flex-wrap:wrap; gap:8px; margin:1.2em 0;}
   .nav-toc a{font-family:var(--mono); font-size:12px; color:var(--muted); border:1px solid var(--line); padding:5px 11px; border-radius:3px; background:var(--panel);}
   .nav-toc a:hover{border-color:var(--ink); color:var(--ink);}
+  .side-toc{display:none;}
   @media(min-width:1100px){
+    .side-toc{display:block;}
     .has-side-toc{display:grid; grid-template-columns:1fr 220px; gap:48px; max-width:var(--wide); margin:0 auto;}
     .side-toc{position:sticky; top:28px; align-self:start; font-family:var(--mono); font-size:12px; max-height:calc(100vh - 56px); overflow:auto; padding-right:6px;}
     .side-toc .t{font-size:10px; letter-spacing:.2em; color:var(--muted); margin-bottom:8px;}
@@ -152,10 +154,30 @@
   pre.plain{font-family:var(--mono); font-size:.86rem; background:var(--panel); border:1px solid var(--line2); border-radius:6px; padding:14px 16px; white-space:pre-wrap; line-height:1.7; color:var(--ink);}
 
   @media(max-width:700px){
-    body{padding:0 14px 80px;}
+    body{padding:0 14px 80px; font-size:15.5px;}
     .grid-2,.grid-3,.spots,.photos,.photos.two{grid-template-columns:1fr;}
     .check{columns:1;}
-    .plan .row{grid-template-columns:64px 1fr;}
+    .plan .row{grid-template-columns:58px 1fr; gap:10px; padding:9px 12px;}
+    .plan .head{padding:10px 12px;}
+    .storm{padding:16px 16px;}
+    .sec-head{flex-wrap:wrap;}
+    .sec-head .lv{margin-left:0; width:100%;}
+    /* 表 → 1 行 1 カード (見出しは JS が data-label に写す) */
+    table.cards,table.cards thead,table.cards tbody,table.cards tr,table.cards th,table.cards td{display:block; width:100%;}
+    table.cards thead{display:none;}
+    table.cards tr{border:1px solid var(--line2); border-radius:6px; padding:10px 12px; margin:0 0 10px; background:var(--panel);}
+    table.cards td{border:0; padding:4px 0; white-space:normal;}
+    table.cards td[data-label]::before{content:attr(data-label); display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--accent); margin-bottom:1px;}
+    table.cards td:first-child{font-weight:700; color:var(--ink); font-size:1.02rem;}
+    .storm table.cards tr{background:transparent; border-color:color-mix(in srgb,var(--bg) 22%,transparent);}
+    .storm table.cards td[data-label]::before{color:var(--sea);}
+    .storm table.cards td:first-child{color:#fff;}
+    /* 横長の図は原寸を保って横スクロール */
+    figure.diagram{overflow-x:auto; -webkit-overflow-scrolling:touch; padding:12px 10px;}
+    figure.diagram svg{min-width:720px;}
+    figure.diagram figcaption::before{content:"↔ 図は横にスクロールできます　"; color:var(--accent);}
+    pre.plain{font-size:.78rem; padding:12px 12px;}
+    h2{font-size:clamp(22px,6.2vw,28px);}
   }
 </style>
 </head>
@@ -1038,6 +1060,17 @@
       });
     });
     window.resetChecks=function(btn){ boxes.forEach(function(b){ b.checked=false; b.parentElement.classList.remove('done'); }); try{ localStorage.removeItem(KEY); }catch(e){} flashBtn(btn,'外しました'); };
+  })();
+  /* tables → mobile cards: thead の見出しを各 td の data-label に写す (CSS 側で 700px 以下だけカード化) */
+  (function(){
+    document.querySelectorAll('table').forEach(function(t){
+      var ths=t.querySelectorAll('thead th');
+      var labels=[]; ths.forEach(function(th){ labels.push(th.textContent.trim()); });
+      t.classList.add('cards');
+      t.querySelectorAll('tbody tr').forEach(function(tr){
+        tr.querySelectorAll('td').forEach(function(td,i){ if(labels[i]&&i>0) td.setAttribute('data-label',labels[i]); });
+      });
+    });
   })();
   /* side toc active */
   (function(){
