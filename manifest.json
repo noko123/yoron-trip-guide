@@ -568,5 +568,15 @@
   "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/ayustety/\">ayustety</a> from Naha, <a href=\"//commons.wikimedia.org/wiki/Okinawa\" class=\"mw-redirect\" title=\"Okinawa\">Okinawa</a>",
   "desc": "at San-ei, Naha, Okinawa<br>ソーキそば",
   "url": "https://commons.wikimedia.org/wiki/File%3ASoki_soba_in_Naha.jpg"
+ },
+ "map_osm": {
+  "file": "OpenStreetMap tiles z15 (stitched)",
+  "thumb": "",
+  "w": 1600,
+  "h": 1096,
+  "license": "ODbL",
+  "artist": "OpenStreetMap contributors",
+  "desc": "与論島の地図。OSM タイルを貼り合わせ、番号マーカーを描いた",
+  "url": "https://www.openstreetmap.org/copyright"
  }
 }

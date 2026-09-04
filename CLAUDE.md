@@ -28,7 +28,8 @@
 ## 新しいページ・別のサイトを足す時
 
 - **置き場は `docs/<slug>/index.html`** (slug は英小文字とハイフン)。push すると `https://noko123.github.io/yoron-trip-guide/<slug>/` で公開される。`build.py` は `docs/index.html` だけを書き換え、他のファイルには触らない
-- 単一 HTML で完結させる (外部 CSS/JS の CDN は使わない・画像は base64 か `docs/<slug>/` 内に置く)。1 ファイル 25MB 以下
+- 単一 HTML で完結させる (画像は base64 か `docs/<slug>/` 内に置く)。1 ファイル 25MB 以下。外部の CDN は原則使わないが、**地図の Leaflet (cdnjs) と OpenStreetMap タイルだけは例外**として使っている (§03 の対話地図。圏外では静止画にフォールバック)
+- 地図を直す時: 座標は `spots.json`、静止画は `map_draw.py` (OSM タイルの貼り合わせ `basemap_z15.png` は `tiles.py` が作る)、Leaflet のマーカーはテンプレ内の `var S=[...]` (spots.json から `map_block.py` が生成した)。3 つを同時に更新する
 - **公開リポジトリなので、予約番号・住所・電話番号・人の顔写真・金額など個人情報は書かない**。必要なら `{{PV:...}}` の仕組みは使えないので、そもそも載せない
 - ガイド本体 (`docs/index.html`) からリンクしたい時は、テンプレの該当章に `<a href="./<slug>/">` を足す
 - 写真は自分で撮ったものか CC ライセンスのものだけ。他サイトの画像をコピーしない

@@ -114,6 +114,14 @@
   .shop .su{font-size:.84rem; color:var(--accent); margin-top:4px;}
   .shop .sl{font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:5px;}
   .shop:hover{border-color:var(--accent);}
+  /* ---- map (OSM 静止画の凡例 + Leaflet) ---- */
+  ol.legend{list-style:none; columns:2; column-gap:24px; margin:.6em 0 1.2em; font-size:.9rem;}
+  ol.legend li{padding:3px 0; break-inside:avoid;}
+  ol.legend .n{display:inline-block; min-width:22px; font-family:var(--mono); color:var(--accent); font-weight:600; margin-right:6px;}
+  #livemap{height:480px; border:1px solid var(--line2); border-radius:6px; background:var(--sea); margin:.6em 0 .4em;}
+  .pin{background:var(--accent); color:#fff; border:2px solid #fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:12px; font-weight:600; box-shadow:0 1px 4px rgba(0,0,0,.45);}
+  .pin.approx{background:var(--muted);}
+  .leaflet-popup-content{font-family:var(--sans); font-size:14px; line-height:1.6;}
   /* ---- day plan (ステッパー) ---- */
   .plan{border:1px solid var(--line2); border-radius:6px; background:var(--panel); margin:1.2em 0; overflow:hidden;}
   .plan .head{display:flex; align-items:baseline; gap:12px; padding:12px 18px; border-bottom:1px solid var(--line2); background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
@@ -167,7 +175,7 @@
   @media(max-width:700px){
     body{padding:0 14px 80px; font-size:15.5px;}
     .grid-2,.grid-3,.spots,.photos,.photos.two,.shops{grid-template-columns:1fr;}
-    .check{columns:1;}
+    .check{columns:1;} ol.legend{columns:1;} #livemap{height:380px;}
     .plan .row{grid-template-columns:58px 1fr; gap:10px; padding:9px 12px;}
     .plan .head{padding:10px 12px;}
     .storm{padding:16px 16px;}
@@ -433,46 +441,46 @@
     <p><b>鹿児島県の最南端で、沖縄本島 (辺戸岬) までは 23km、鹿児島市までは 580km。</b>行政は鹿児島、暮らしと言葉は琉球寄り。周囲 23.7km・面積 20.58km²・最高点 97.1m の平らな島で、隆起したサンゴ礁 (琉球石灰岩) でできている<sup class="cite"><a href="#s14">14</a></sup>。人口は約 4,900 人 (2026 年 2 月)、1 島 1 町・9 集落<sup class="cite"><a href="#s16">16</a></sup>。車なら 1 周 1 時間、自転車でも半日で回れる。</p>
     <figure class="photo">{{IMG:aerial_katsuu}}<figcaption>沖縄本島北部の山から見た与論島 (2026 年 7 月)。海峡はわずか 23km で、与論城跡やサザンクロスセンターからは逆に沖縄が見える。{{CREDIT:aerial_katsuu}}</figcaption></figure>
 
-    <h3>島の略図 — どこに何があるか</h3>
-    <figure class="diagram">
-      <svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="BIZ UDPGothic, Meiryo, sans-serif">
-        <rect x="0" y="0" width="760" height="470" fill="#BFE3E4" opacity=".55"/>
-        <!-- reef ring -->
-        <path d="M118,52 C200,10 330,0 430,18 C540,34 660,100 700,190 C735,270 690,370 590,412 C480,460 300,462 190,420 C90,380 40,300 50,210 C58,140 70,80 118,52 Z" fill="#DDEFEF" stroke="#8FC9CA" stroke-width="1.5" stroke-dasharray="4 3"/>
-        <!-- island -->
-        <path d="M140,80 C210,45 330,40 430,55 C520,68 620,130 655,200 C690,270 650,350 570,385 C470,430 300,430 200,395 C120,365 80,300 88,220 C94,160 100,110 140,80 Z" fill="#EADFC6" stroke="#1B2732" stroke-width="1.6"/>
-        <!-- inland hint -->
-        <path d="M250,150 C330,120 420,130 500,170 C560,200 570,260 520,300 C450,350 300,350 240,300 C200,260 200,180 250,150 Z" fill="#DCCFAF" opacity=".7"/>
-        <!-- roads (schematic loop) -->
-        <path d="M175,130 C260,90 380,90 470,120 C560,150 610,220 600,290 C590,340 500,380 420,385 C320,392 220,370 170,320 C130,280 130,190 175,130 Z" fill="none" stroke="#FDFBF6" stroke-width="3"/>
-        <!-- airport runway (NW) -->
-        <rect x="125" y="118" width="14" height="80" fill="#6F7B86" transform="rotate(-25 132 158)"/>
-        <!-- Yurigahama sandbar (E, offshore) -->
-        <ellipse cx="705" cy="235" rx="22" ry="7" fill="#FDFBF6" stroke="#1B2732" stroke-width="1"/>
-        <!-- spots: circle + label -->
-        <g font-size="12.5" fill="#1B2732">
-          <g><circle cx="150" cy="150" r="5" fill="#0F8B8D"/><text x="160" y="146">与論空港</text></g>
-          <g><circle cx="128" cy="205" r="6" fill="#1B2732"/><text x="40" y="232" font-weight="700">プリシア</text><text x="40" y="248" font-size="10.5" fill="#6F7B86">兼母海岸・空港から車 3 分</text></g>
-          <g><circle cx="215" cy="205" r="5" fill="#0F8B8D"/><text x="222" y="200">茶花 (繁華街・役場・郵便局)</text></g>
-          <g><circle cx="200" cy="170" r="4.5" fill="#0F8B8D"/><text x="208" y="166">ウドノスビーチ</text></g>
-          <g><circle cx="140" cy="270" r="5" fill="#0F8B8D"/><text x="148" y="285">与論港 (供利)・ヨロン駅</text></g>
-          <g><circle cx="300" cy="72" r="4.5" fill="#0F8B8D"/><text x="308" y="68">寺崎海岸</text></g>
-          <g><circle cx="420" cy="70" r="4.5" fill="#0F8B8D"/><text x="428" y="66">皆田海岸 (北)</text></g>
-          <g><circle cx="628" cy="238" r="5" fill="#0F8B8D"/><text x="520" y="232">大金久海岸</text><text x="520" y="248" font-size="10.5" fill="#6F7B86">グラスボート乗り場</text></g>
-          <g><text x="660" y="262" font-weight="700" font-size="12">百合ヶ浜</text><text x="660" y="277" font-size="10.5" fill="#6F7B86">干潮時のみ・沖 1.5km</text></g>
-          <g><circle cx="600" cy="290" r="4.5" fill="#0F8B8D"/><text x="520" y="305">鳩の湖</text></g>
-          <g><circle cx="380" cy="300" r="5" fill="#0F8B8D"/><text x="300" y="330">与論城跡・サザンクロスセンター</text><text x="300" y="345" font-size="10.5" fill="#6F7B86">島で一番高い場所 (南)</text></g>
-          <g><circle cx="560" cy="360" r="4.5" fill="#0F8B8D"/><text x="470" y="380">赤崎鍾乳洞 (南東)</text></g>
-          <g><circle cx="470" cy="330" r="4.5" fill="#0F8B8D"/><text x="475" y="322">与論民俗村</text></g>
-          <g><circle cx="205" cy="240" r="4" fill="#0F8B8D"/><text x="212" y="244">有村酒造</text></g>
-        </g>
-        <g font-size="11" fill="#6F7B86">
-          <text x="600" y="40">↑ 北</text>
-          <text x="30" y="450">略図 (縮尺・形は概略。東西 約 7km)。白い線は島を 1 周する県道。点線はリーフ (サンゴ礁の縁)。</text>
-        </g>
-      </svg>
-      <figcaption>位置は OpenStreetMap の座標 (空港 27.044N/128.401E・プリシア 27.049/128.399・百合ヶ浜 27.039/128.466 など) から起こした概略。プリシアは島の西北、百合ヶ浜は真反対の東側で、車で 15 分。</figcaption>
-    </figure>
+    <h3>島の地図 — 18 か所</h3>
+    <figure class="photo">{{IMG:map_osm}}<figcaption>OpenStreetMap の実地図 (ズーム 15) に 18 か所を番号で置いた。二重丸の 4 か所 (ひょうきん・有村酒造・皆田海岸・赤崎鍾乳洞) は住所からの概略位置。黄色の線が島を 1 周する県道 623 号。© OpenStreetMap contributors (ODbL)。</figcaption></figure>
+    <ol class="legend">
+      <li><span class="n">1</span>与論空港</li>
+      <li><span class="n">2</span>プリシアリゾートヨロン</li>
+      <li><span class="n">3</span>ヨロン駅</li>
+      <li><span class="n">4</span>与論港 (フェリー)</li>
+      <li><span class="n">5</span>茶花 (役場・郵便局 ATM・A コープ)</li>
+      <li><span class="n">6</span>与論徳洲会病院</li>
+      <li><span class="n">7</span>居酒屋 ひょうきん (9/5 19:00) <span class="muted">(概略)</span></li>
+      <li><span class="n">8</span>有村酒造 (島有泉) <span class="muted">(概略)</span></li>
+      <li><span class="n">9</span>ウドノスビーチ</li>
+      <li><span class="n">10</span>舵引きの丘 (神話の聖地)</li>
+      <li><span class="n">11</span>寺崎海岸</li>
+      <li><span class="n">12</span>皆田海岸 <span class="muted">(概略)</span></li>
+      <li><span class="n">13</span>大金久海岸 (グラスボート乗り場)</li>
+      <li><span class="n">14</span>百合ヶ浜</li>
+      <li><span class="n">15</span>与論民俗村</li>
+      <li><span class="n">16</span>赤崎鍾乳洞 <span class="muted">(概略)</span></li>
+      <li><span class="n">17</span>サザンクロスセンター・観光協会 (ゆいパンタ)</li>
+      <li><span class="n">18</span>与論城跡・地主神社</li>
+    </ol>
+    <h4>拡大できる地図 — マーカーを押すと Google マップへ</h4>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <div id="livemap"></div>
+    <p class="note" style="font-family:var(--mono);font-size:12px;color:var(--muted)">オンライン時だけ表示される (地図タイルは OpenStreetMap)。圏外では上の静止画を使う。ピンチで拡大、番号を押すと「Google マップで開く / ここへの経路」。</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+    (function(){
+      if(!window.L) return;
+      var S=[{"n": 1, "name": "与論空港", "lat": 27.04384, "lon": 128.4017, "approx": false}, {"n": 2, "name": "プリシアリゾートヨロン", "lat": 27.04911, "lon": 128.39852, "approx": false}, {"n": 3, "name": "ヨロン駅", "lat": 27.04011, "lon": 128.39799, "approx": false}, {"n": 4, "name": "与論港 (フェリー)", "lat": 27.03637, "lon": 128.40097, "approx": false}, {"n": 5, "name": "茶花 (役場・郵便局 ATM・A コープ)", "lat": 27.046, "lon": 128.4175, "approx": false}, {"n": 6, "name": "与論徳洲会病院", "lat": 27.04384, "lon": 128.41634, "approx": false}, {"n": 7, "name": "居酒屋 ひょうきん (9/5 19:00)", "lat": 27.0455, "lon": 128.4205, "approx": true}, {"n": 8, "name": "有村酒造 (島有泉)", "lat": 27.0465, "lon": 128.4145, "approx": true}, {"n": 9, "name": "ウドノスビーチ", "lat": 27.05208, "lon": 128.41473, "approx": false}, {"n": 10, "name": "舵引きの丘 (神話の聖地)", "lat": 27.04689, "lon": 128.4281, "approx": false}, {"n": 11, "name": "寺崎海岸", "lat": 27.06076, "lon": 128.44498, "approx": false}, {"n": 12, "name": "皆田海岸", "lat": 27.0555, "lon": 128.4495, "approx": true}, {"n": 13, "name": "大金久海岸 (グラスボート乗り場)", "lat": 27.03907, "lon": 128.45404, "approx": false}, {"n": 14, "name": "百合ヶ浜", "lat": 27.03889, "lon": 128.46553, "approx": false}, {"n": 15, "name": "与論民俗村", "lat": 27.0251, "lon": 128.45285, "approx": false}, {"n": 16, "name": "赤崎鍾乳洞", "lat": 27.0215, "lon": 128.447, "approx": true}, {"n": 17, "name": "サザンクロスセンター・観光協会 (ゆいパンタ)", "lat": 27.02868, "lon": 128.42941, "approx": false}, {"n": 18, "name": "与論城跡・地主神社", "lat": 27.02754, "lon": 128.42913, "approx": false}];
+      var m=L.map('livemap',{scrollWheelZoom:false}).setView([27.042,128.43],13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(m);
+      S.forEach(function(s){
+        var ic=L.divIcon({className:'pin'+(s.approx?' approx':''),html:'<span>'+s.n+'</span>',iconSize:[26,26],iconAnchor:[13,13],popupAnchor:[0,-12]});
+        var q=s.lat+','+s.lon;
+        L.marker([s.lat,s.lon],{icon:ic}).addTo(m).bindPopup('<b>'+s.n+'. '+s.name+'</b>'+(s.approx?'<br><small>概略位置 — 現地で確認</small>':'')+'<br><a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" rel="noopener">Google マップで開く</a> ・ <a href="https://www.google.com/maps/dir/?api=1&destination='+q+'" target="_blank" rel="noopener">ここへの経路</a>');
+      });
+    })();
+    </script>
     <p>島の使い方は単純で、<b>西側 (空港・プリシア・茶花) に寝て、東側 (大金久・百合ヶ浜) に遊びに行き、南の高台 (与論城跡) で島全体を眺める</b>。9 人で 3 日いても、この三角形を 2 周すれば主要な場所は全部踏める。</p>
   </section>
 
@@ -689,7 +697,7 @@
       </ul>
     </details>
     <h3>ヨロンパナウル王国パスポート — 9 人なら家族ごとに 1 冊</h3>
-    <p>1983 年のパロディ国家の「入国パスポート」。<b>観光協会の案内所 (ゆいパンタ内、9:00〜17:00・水曜休) で 1 冊 700 円、有効 5 年</b>。提示すると島内の協賛施設で割引などの特典があり、特典を使うたびに押されるスタンプが 10 個たまると観光協会でプレゼント<sup class="cite"><a href="#s20">20</a></sup>。9/5 の到着日はプリシアから車 2 分の距離なので、15:30 の買い出しのついでに寄ると 3 日間使える。子どもの旅の記念にもなる。</p>
+    <p>1983 年のパロディ国家の「入国パスポート」。<b>観光協会の案内所 (ゆいパンタ内、9:00〜17:00・水曜休) で 1 冊 700 円、有効 5 年</b>。提示すると島内の協賛施設で割引などの特典があり、特典を使うたびに押されるスタンプが 10 個たまると観光協会でプレゼント<sup class="cite"><a href="#s20">20</a></sup>。案内所はサザンクロスセンターの隣 (プリシアから車 8 分・地図 17) なので、9/6 午後に与論城跡へ行く時に買うのが自然。9/5 のうちに欲しければ買い出しの後に足を伸ばす。子どもの旅の記念にもなる。</p>
   </section>
 
   <!-- ============ 09 ============ -->
@@ -744,7 +752,7 @@
       <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46005158/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/211275/eff716ad51d6757f995ac816217bb5c3.jpg?token=d337ee4&api=v2" alt="芭蕉亭" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">芭蕉亭</div><div class="sd">食堂・郷土料理。カレー・定食。口コミ 22 件と島で最多級</div><div class="su">9/7 昼 (茶花)</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46005158/dtlphotolst/">写真一覧</span></div></div></a>
       <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46018015/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/374467/a055b4c8336461b3999a0e10840ba0a9.jpg?token=fe8cc51&api=v2" alt="麺処 むすび" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">麺処 むすび</div><div class="sd">ラーメン。茶花</div><div class="su">雨の日の昼</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46018015/dtlphotolst/">写真一覧</span></div></div></a>
       <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46019115/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/371914/b3c2cae8b5d19c36b46dd4ab178f3d54.jpg?token=f16810d&api=v2" alt="EMBER COVE" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">EMBER COVE</div><div class="sd">ハンバーガー。那間 (北東)</div><div class="su">寺崎・皆田の帰りに</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46019115/dtlphotolst/">写真一覧</span></div></div></a>
-      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46017915/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/284796/d57128cada2c8b5fbcb0dc75b8c94421.jpg?token=c093134&api=v2" alt="ゆんぬカフェ" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">ゆんぬカフェ</div><div class="sd">自家焙煎コーヒーとデザート。観光協会 (ゆいパンタ) の隣・立長</div><div class="su">プリシアから最寄りのカフェ</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46017915/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46017915/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/284796/d57128cada2c8b5fbcb0dc75b8c94421.jpg?token=c093134&api=v2" alt="ゆんぬカフェ" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">ゆんぬカフェ</div><div class="sd">自家焙煎コーヒーとデザート。観光協会 (ゆいパンタ) の隣・立長</div><div class="su">サザンクロス・与論城跡の行き帰りに</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46017915/dtlphotolst/">写真一覧</span></div></div></a>
       <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46014949/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/173505/7b88ab73394ce58d4ccf852f4c43baea.jpg?token=ac4b21e&api=v2" alt="カスタネット商店" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">カスタネット商店</div><div class="sd">カフェ。茶花</div><div class="su">午後の休憩</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46014949/dtlphotolst/">写真一覧</span></div></div></a>
       <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46016854/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/296918/a8ac4cc30b9b45788fb1bb2894bcda37.jpg?token=723c2c4&api=v2" alt="LITTLE BEACH 3540" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">LITTLE BEACH 3540</div><div class="sd">カフェ。古里 (南)</div><div class="su">与論城跡・民俗村の帰り</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46016854/dtlphotolst/">写真一覧</span></div></div></a>
       <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46000823/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/378842/acdfc47f89f0e3feb324315fe7db394b.jpg?token=e6d19dd&api=v2" alt="居酒屋 ひょうきん" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">居酒屋 ひょうきん</div><div class="sd">海鮮系居酒屋。奄美黒ほろほろ鳥の刺し。役場から 250m</div><div class="su"><b>9/5 19:00 (予約済)</b>。与論献奉が出るならここ</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46000823/dtlphotolst/">写真一覧</span></div></div></a>

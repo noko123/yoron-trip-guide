@@ -17,7 +17,8 @@ def build(public):
     used=sorted(set(re.findall(r'\{\{IMG:([A-Za-z0-9_\-]+)\}\}',src)))
     items=[]; missing=[]
     for s in used:
-        m=man.get(s); f=f'use/{s}.jpg'
+        m=man.get(s); f=f'use/{s}.jpg'; mime='jpeg'
+        if not os.path.exists(f) and os.path.exists(f'use/{s}.png'): f=f'use/{s}.png'; mime='png'
         if not m or not os.path.exists(f): missing.append(s); continue
         artist=strip(m['artist']); artist=re.sub(r'No machine-readable author provided\.?\s*','',artist).strip()
         n=len(artist)//2
@@ -25,7 +26,7 @@ def build(public):
         artist=(artist or '不明')[:40]; lic=m['license'] or 'see Commons'
         src=src.replace('{{CREDIT:'+s+'}}',f'<span class="credit">写真: {html.escape(artist)} / <a href="{lic_url.get(lic,m["url"])}">{html.escape(lic)}</a> / <a href="{m["url"]}">Commons</a></span>')
         b64=base64.b64encode(open(f,'rb').read()).decode()
-        src=src.replace('{{IMG:'+s+'}}',f'<img src="data:image/jpeg;base64,{b64}" alt="{s}" loading="lazy">')
+        src=src.replace('{{IMG:'+s+'}}',f'<img src="data:image/{mime};base64,{b64}" alt="{s}" loading="lazy">')
         items.append(f'<li><b>{s}</b> — {html.escape(m["file"].replace("File:",""))} · {html.escape(artist)} · <a href="{lic_url.get(lic,m["url"])}">{html.escape(lic)}</a> · <a href="{m["url"]}">Commons</a></li>')
     src=src.replace('{{CREDITS_LIST}}','\n'.join(items)).replace('全 32 枚',f'全 {len(used)} 枚')
     if public:
