@@ -103,6 +103,17 @@
   .rain{display:inline-block; font-family:var(--mono); font-size:10.5px; padding:1px 7px; border-radius:2px; background:var(--ink); color:var(--bg); letter-spacing:.06em;}
   .rain.no{background:transparent; color:var(--muted); border:1px solid var(--line2);}
 
+  /* ---- shop cards (食べログ OGP サムネ) ---- */
+  .shops{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:1.2em 0;}
+  .shop{display:grid; grid-template-columns:104px 1fr; gap:0; background:var(--panel); border:1px solid var(--line2); border-radius:6px; overflow:hidden; color:inherit; border-bottom:1px solid var(--line2); text-decoration:none;}
+  .shop img,.shop .no-photo{width:104px; height:104px; object-fit:cover; display:block; background:var(--sand);}
+  .shop .no-photo{aspect-ratio:auto; font-size:1rem;}
+  .shop .sb{padding:9px 12px 10px; min-width:0;}
+  .shop .sn{font-family:var(--serif); font-weight:700; color:var(--ink); font-size:1.02rem; line-height:1.3;}
+  .shop .sd{font-size:.84rem; color:var(--soft); margin-top:3px; line-height:1.5;}
+  .shop .su{font-size:.84rem; color:var(--accent); margin-top:4px;}
+  .shop .sl{font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:5px;}
+  .shop:hover{border-color:var(--accent);}
   /* ---- day plan (ステッパー) ---- */
   .plan{border:1px solid var(--line2); border-radius:6px; background:var(--panel); margin:1.2em 0; overflow:hidden;}
   .plan .head{display:flex; align-items:baseline; gap:12px; padding:12px 18px; border-bottom:1px solid var(--line2); background:color-mix(in srgb,var(--accent) 6%,var(--panel));}
@@ -155,7 +166,7 @@
 
   @media(max-width:700px){
     body{padding:0 14px 80px; font-size:15.5px;}
-    .grid-2,.grid-3,.spots,.photos,.photos.two{grid-template-columns:1fr;}
+    .grid-2,.grid-3,.spots,.photos,.photos.two,.shops{grid-template-columns:1fr;}
     .check{columns:1;}
     .plan .row{grid-template-columns:58px 1fr; gap:10px; padding:9px 12px;}
     .plan .head{padding:10px 12px;}
@@ -684,26 +695,23 @@
     </div>
 
     <h3>店のリスト — 食べログ直リンク付き</h3>
-    <p>与論町の食べログ掲載は 105 店<sup class="cite"><a href="#s44">44</a></sup>。夕食 2 回は決まっているので、<b>昼 2 回・カフェ・予備の夜</b>に使える店を挙げた。<b>店内や料理の写真は各店と食べログの著作物なのでこのページには焼き込まない</b>。リンク先の「写真」タブで見る。8 人で入る店は必ず前日までに電話。</p>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>店</th><th>何の店か</th><th>使いどころ</th><th>リンク</th></tr></thead>
-      <tbody>
-        <tr><td><b>ヨロンの味 たら</b></td><td>鶏飯・モリンガ麺 (創作料理)。11:30〜14:00 / 18:00〜20:00・要予約</td><td>9/6 昼の本命</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46000848/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46000848/dtlphotolst/">写真</a></td></tr>
-        <tr><td><b>蒼い珊瑚礁</b></td><td>食堂。もずくそば・もずく天ぷら定食。海沿い</td><td>9/6 or 9/7 昼</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46005164/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46005164/dtlphotolst/">写真</a></td></tr>
-        <tr><td><b>味咲 (みさき)</b></td><td>麺類・かき氷・沖縄料理。茶花</td><td>軽い昼・おやつ</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46007513/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46007513/dtlmenu/photo/">メニュー写真</a></td></tr>
-        <tr><td><b>芭蕉亭</b></td><td>食堂・郷土料理。カレー・定食。口コミ 22 件と島で最多級</td><td>9/7 昼 (茶花)</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46005158/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46005158/dtlphotolst/">写真</a></td></tr>
-        <tr><td><b>麺処 むすび</b></td><td>ラーメン。茶花</td><td>雨の日の昼</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46018015/">食べログ</a></td></tr>
-        <tr><td><b>EMBER COVE</b></td><td>ハンバーガー。那間 (北東)</td><td>寺崎・皆田の帰りに</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46019115/">食べログ</a></td></tr>
-        <tr><td><b>ゆんぬカフェ</b></td><td>自家焙煎コーヒーとデザート。観光協会 (ゆいパンタ) の隣・立長</td><td>プリシアから最寄りのカフェ</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46017915/">食べログ</a></td></tr>
-        <tr><td><b>カスタネット商店</b></td><td>カフェ。茶花</td><td>午後の休憩</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46014949/">食べログ</a></td></tr>
-        <tr><td><b>LITTLE BEACH 3540</b></td><td>カフェ。古里 (南)</td><td>与論城跡・民俗村の帰り</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46016854/">食べログ</a></td></tr>
-        <tr><td><b>居酒屋 ひょうきん</b></td><td>海鮮系居酒屋。奄美黒ほろほろ鳥の刺し。役場から 250m</td><td><b>9/5 19:00 (予約済)</b>。与論献奉が出るならここ</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46000823/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46000823/dtlphotolst/">写真</a></td></tr>
-        <tr><td><b>かよい舟</b></td><td>居酒屋。島の魚と野菜の郷土料理 100 種超。ゆいパンタの建物内</td><td>予備の夜</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46005153/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46005153/dtlphotolst/">写真</a></td></tr>
-        <tr><td><b>旬彩 Tuk Tuk</b></td><td>創作居酒屋。個室あり</td><td>8 人で個室が要る時</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46011162/">食べログ</a> · <a href="https://tabelog.com/kagoshima/A4605/A460502/46011162/dtlphotolst/">写真</a></td></tr>
-        <tr><td><b>食音酒場 MASAMUNU</b></td><td>居酒屋。与論・沖縄料理と泡盛。立長 (プリシア寄り)</td><td>徒歩圏の夜</td><td><a href="https://tabelog.com/kagoshima/A4605/A460502/46017879/">食べログ</a></td></tr>
-        <tr><td><b>空港の「ブルースカイ」</b></td><td>軽食。席が少ない</td><td>復路直前</td><td>—</td></tr>
-      </tbody>
-    </table></div>
+    <p>与論町の食べログ掲載は 105 店<sup class="cite"><a href="#s44">44</a></sup>。夕食 2 回は決まっているので、<b>昼 2 回・カフェ・予備の夜</b>に使える店を挙げた。サムネイルは各店の食べログページの代表写真 (OGP 画像) を<b>食べログのサーバーから直接参照</b>している (このページには複製していない。食べログ側で URL が変わると表示されなくなる)。カードを押すと食べログの店ページ、「写真一覧」で写真タブへ。8 人で入る店は必ず前日までに電話。</p>
+    <div class="shops">
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46000848/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/262800/7858347e89748adb2d17b22aeec1d992.jpg?token=55082d2&api=v2" alt="ヨロンの味 たら" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">ヨロンの味 たら</div><div class="sd">鶏飯・モリンガ麺 (創作料理)。11:30〜14:00 / 18:00〜20:00・要予約</div><div class="su">9/6 昼の本命</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46000848/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46005164/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/379287/74d5c6a0f796cb2c401f9e83a2821efd.jpg?token=d8a24c7&api=v2" alt="蒼い珊瑚礁" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">蒼い珊瑚礁</div><div class="sd">食堂。もずくそば・もずく天ぷら定食。海沿い</div><div class="su">9/6 or 9/7 昼</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46005164/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46007513/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/315839/e798a59f4ca62ecaaa62f490871d579f.jpg?token=cffb983&api=v2" alt="味咲 (みさき)" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">味咲 (みさき)</div><div class="sd">麺類・かき氷・沖縄料理。茶花</div><div class="su">軽い昼・おやつ</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46007513/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46005158/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/211275/eff716ad51d6757f995ac816217bb5c3.jpg?token=d337ee4&api=v2" alt="芭蕉亭" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">芭蕉亭</div><div class="sd">食堂・郷土料理。カレー・定食。口コミ 22 件と島で最多級</div><div class="su">9/7 昼 (茶花)</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46005158/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46018015/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/374467/a055b4c8336461b3999a0e10840ba0a9.jpg?token=fe8cc51&api=v2" alt="麺処 むすび" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">麺処 むすび</div><div class="sd">ラーメン。茶花</div><div class="su">雨の日の昼</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46018015/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46019115/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/371914/b3c2cae8b5d19c36b46dd4ab178f3d54.jpg?token=f16810d&api=v2" alt="EMBER COVE" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">EMBER COVE</div><div class="sd">ハンバーガー。那間 (北東)</div><div class="su">寺崎・皆田の帰りに</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46019115/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46017915/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/284796/d57128cada2c8b5fbcb0dc75b8c94421.jpg?token=c093134&api=v2" alt="ゆんぬカフェ" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">ゆんぬカフェ</div><div class="sd">自家焙煎コーヒーとデザート。観光協会 (ゆいパンタ) の隣・立長</div><div class="su">プリシアから最寄りのカフェ</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46017915/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46014949/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/173505/7b88ab73394ce58d4ccf852f4c43baea.jpg?token=ac4b21e&api=v2" alt="カスタネット商店" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">カスタネット商店</div><div class="sd">カフェ。茶花</div><div class="su">午後の休憩</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46014949/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46016854/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/296918/a8ac4cc30b9b45788fb1bb2894bcda37.jpg?token=723c2c4&api=v2" alt="LITTLE BEACH 3540" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">LITTLE BEACH 3540</div><div class="sd">カフェ。古里 (南)</div><div class="su">与論城跡・民俗村の帰り</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46016854/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46000823/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/378842/acdfc47f89f0e3feb324315fe7db394b.jpg?token=e6d19dd&api=v2" alt="居酒屋 ひょうきん" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">居酒屋 ひょうきん</div><div class="sd">海鮮系居酒屋。奄美黒ほろほろ鳥の刺し。役場から 250m</div><div class="su"><b>9/5 19:00 (予約済)</b>。与論献奉が出るならここ</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46000823/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46005153/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/351183/2fda00a2afb8d74569a5d61e76332967.jpg?token=e382529&api=v2" alt="かよい舟" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">かよい舟</div><div class="sd">居酒屋。島の魚と野菜の郷土料理 100 種超。ゆいパンタの建物内</div><div class="su">予備の夜</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46005153/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46011162/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/256148/b3829900adcb07e590981039f825eb13.jpg?token=2f2b648&api=v2" alt="旬彩 Tuk Tuk" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">旬彩 Tuk Tuk</div><div class="sd">創作居酒屋。個室あり</div><div class="su">8 人で個室が要る時</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46011162/dtlphotolst/">写真一覧</span></div></div></a>
+      <a class="shop" href="https://tabelog.com/kagoshima/A4605/A460502/46017879/"><img src="https://tblg.k-img.com/resize/640x640c/restaurant/images/Rvw/299217/0557aedee477495afd3234d3f55c7b20.jpg?token=d1b8290&api=v2" alt="食音酒場 MASAMUNU" loading="lazy" referrerpolicy="no-referrer"><div class="sb"><div class="sn">食音酒場 MASAMUNU</div><div class="sd">居酒屋。与論・沖縄料理と泡盛。立長 (プリシア寄り)</div><div class="su">徒歩圏の夜</div><div class="sl"><span>食べログ</span> · <span data-href="https://tabelog.com/kagoshima/A4605/A460502/46017879/dtlphotolst/">写真一覧</span></div></div></a>
+      <div class="shop"><div class="no-photo" style="aspect-ratio:1/1">空港</div><div class="sb"><div class="sn">空港の「ブルースカイ」</div><div class="sd">軽食。席が少ない</div><div class="su">復路直前</div></div></div>
+    </div>
     <p class="muted" style="font-size:.88rem">与論町の店を一覧で見るなら <a href="https://tabelog.com/kagoshima/C46535/rstLst/">食べログ 与論町</a>、居酒屋だけなら <a href="https://tabelog.com/kagoshima/C46535/rstLst/izakaya/">居酒屋一覧</a>。点数は 3.0 台に固まっているので、口コミ件数と写真で選ぶ。</p>
     <h3>BBQ の差し入れ — 島で買う 3 つと本土から持つ 1 つ</h3>
     <p>島で買うなら<b>①島有泉 (1.8L の紙パックがスーパーにある)、②A コープのヨロン黒牛か島魚 (朝のうちに買う。夜は売り切れる<sup class="cite"><a href="#s28">28</a></sup>)、③島バナナ・パッションフルーツ</b>。本土から持って行くなら、島に無い<b>東京の菓子・クラフトビール</b>のような「島で手に入らないもの」が喜ばれる。氷は A コープかコンビニ「フロント」(8:30〜24:00)。</p>
@@ -1031,6 +1039,7 @@
       });
     });
   })();
+  document.querySelectorAll('.shop .sl span[data-href]').forEach(function(s){ s.style.textDecoration='underline'; s.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); window.open(s.dataset.href,'_blank'); }); });
   /* side toc active */
   (function(){
     var links=document.querySelectorAll('.side-toc a'); if(!links.length) return;
