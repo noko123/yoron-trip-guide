@@ -45,6 +45,23 @@
   .hot ol{margin:0; padding-left:1.4em;}
   .hot li{margin:0 0 .5em; line-height:1.6;}
   .hot li b{color:var(--ink);}
+  .now{border:1px solid var(--line2); border-radius:6px; margin:0 0 1.4em; background:var(--panel); overflow:hidden;}
+  .now .nowhead{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:9px 14px; border-bottom:1px solid var(--line2); flex-wrap:wrap;}
+  .now .nowhead .t{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent);}
+  .now .mode button{font-family:var(--mono); font-size:11.5px; padding:3px 10px; border:1px solid var(--line2); background:var(--bg); color:var(--muted); border-radius:4px; cursor:pointer; margin-left:4px;}
+  .now .mode button.on{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .now .grid{display:grid; grid-template-columns:1.3fr 1fr; gap:0;}
+  .now .cell{padding:12px 14px;}
+  .now .cell+.cell{border-left:1px solid var(--line2);}
+  .now .k{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; color:var(--muted); margin-bottom:3px;}
+  .now .h{font-weight:700; font-size:1.05rem; margin-bottom:4px;}
+  .now p{margin:0; font-size:.93rem; line-height:1.65;}
+  .now .now-sp{padding:10px 14px 12px; border-top:1px solid var(--line2);}
+  .now .now-sp ul{margin:.2em 0 0; padding-left:1.2em;}
+  .now .now-sp li{font-size:.92rem; line-height:1.6; margin-bottom:2px;}
+  .now .now-sp li b{color:var(--ink);}
+  .now .nxt p{color:var(--muted);}
+  @media (max-width:700px){ .now .grid{grid-template-columns:1fr;} .now .cell+.cell{border-left:0; border-top:1px solid var(--line2);} }
   .sub{color:var(--muted); font-size:clamp(15px,2.1vw,19px); line-height:1.75; margin:0 0 1.2em; max-width:62ch;}
   .reader{font-size:.92rem; color:var(--muted); border-top:1px solid var(--line2); border-bottom:1px solid var(--line2); padding:10px 0; margin:1.2em 0 1.6em; font-family:var(--mono); line-height:1.7;}
 
@@ -228,6 +245,10 @@
       <li><b>船はすでに止まっている。</b>マリックスラインは 9/4・9/5 の那覇発を欠航。那覇で足止めなら宿を先に押さえて 9/6 便へ振替 → <a href="#s13">§13 ケース B</a></li>
       <li><b>9/6 朝のグラスボートは出ない前提で。</b>台風が那覇に最接近するのが 9/6 朝〜昼で、与論は雷を伴う雨・強風・高波の予報。雨版 (鍾乳洞・サザンクロス・民俗村) を本線に → <a href="#s07">§07</a></li>
     </ol>
+  </div>
+  <div class="now" id="now">
+    <div class="nowhead"><span class="t">いま何をする — <span id="now-clock">--:--</span> JST</span><span class="mode"><button type="button" data-m="rain" onclick="setNowMode('rain',this)">雨版</button><button type="button" data-m="sun" onclick="setNowMode('sun',this)">晴れ版</button></span></div>
+    <div id="now-body"><p class="cell">この端末の時刻から、いまの旅程と次にやることを表示します (JavaScript が必要)。</p></div>
   </div>
   <p class="sub">羽田→那覇→与論の 2 泊 3 日。Gmail の予約 (JAL・Trip.com) と観光協会・気象・潮汐の一次情報から組んだ、この旅程専用の手帳。</p>
   <div class="reader">読者: 9/5〜9/7 に与論島へ行く 9 人。飛行機と宿は押さえてあり、島は初めて。読み終えると「台風で飛ぶか飛ばないかを自分で判定」「潮を見て百合ヶ浜に賭けるか決める」「9 人での移動・食事・BBQ の段取り」ができる。<br>通読 約 50 分 (約 2.4 万字)。急ぐなら §01 → §02 → §07 → §12 → §14 だけで旅は回る。</div>
@@ -1236,6 +1257,91 @@
     if(!('IntersectionObserver' in window)) return;
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(l){l.classList.remove('active');}); var a=map[e.target.id]; if(a) a.classList.add('active'); } }); },{rootMargin:'-20% 0px -70% 0px'});
     Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+  })();
+  /* いま何をする: 端末時刻 (JST 換算) で旅程スロットを選ぶ。?t=2026-09-06T10:00 で任意時刻を試せる */
+  (function(){
+    var body=document.getElementById('now-body'); if(!body) return;
+    var A=function(n,w){return [n,w];};
+    var KUKO=A('空港食堂 (1F 到着ロビー左奥)','沖縄そば・ソーキそば 600〜900 円。提供が早く子どもは沖縄そば');
+    var BSKY=A('BLUE SKY (制限エリア内)','ポークたまごおにぎり・弁当。遅れて着いたらこちら');
+    var ARIM=A('有村酒造 (茶花)','島有泉の直売。8:00〜17:00・日祝休 → 9/6 は休みなので 9/5 に');
+    var ACOP=A('A コープ与論店 / スーパー トップ','炭酸水・氷・ヨロン黒牛・黒ほろほろ鳥。BBQ の買い出し');
+    var EKI=A('ヨロン駅','茶花港近くの駅名標。雨でも 5 分で撮れる写真スポット');
+    var AKAS=A('赤崎鍾乳洞','500 円・15〜20 分。雨でも中は同じ、滑るので濡れてもいい靴');
+    var SCC=A('サザンクロスセンター','400 円。1〜4F 資料館、5F 展望室から沖縄本島');
+    var OGN=A('大金久海岸 / 百合ヶ浜','グラスボート往復 3,300〜3,850 円・10 分。星砂探しは浅瀬でも');
+    var UDO=A('ウドノスビーチ','茶花に近く浅い。子ども向き');
+    var TERA=A('寺崎海岸','夕方の光がよい。人が少ない');
+    var MINA=A('皆田海岸 (北岸)','干潮時に沖の岩まで歩ける');
+    var JOU=A('与論城跡','琉球式の石垣。小雨でも行ける、サザンクロスに隣接');
+    var MINZ=A('与論民俗村','茅葺き・赤瓦民家の復元。芭蕉布コースター織り体験、お茶請けが出る');
+    var YAKI=A('ゆんぬ・あーどぅる焼 窯元','島の土の器。雨の日の 30 分');
+    var TARA=A('ヨロンの味 たら','鶏飯。11:30〜14:00・要予約');
+    var AOI=A('蒼い珊瑚礁','もずくそば。海が見える');
+    var CHAB=A('茶花の食堂・カフェ','雨の日の待避先。§09 の店カード参照');
+    var HYO=A('居酒屋 ひょうきん','予約済 19:00。海鮮と奄美黒ほろほろ鳥の刺し');
+    var R3F=A('那覇空港 3F レストラン街','乗継が長い時に座って食べる');
+    var MIYA=A('那覇空港 2F 出発ロビーの土産店','那覇限定の菓子はここで買い足す');
+    var P=[
+      [0,'00:00','出発前 — 羽田へ',{c:'手荷物預け 08:10 締切、保安検査 08:20、搭乗口 08:30。JAL アプリの搭乗バーコードを家族単位で出せるか確認。モバイルバッテリー・酔い止め・ラッシュガードは手元に。'},[],'#s01'],
+      [0,'08:40','JL907 機内 (→ 那覇 11:15)',{c:'着陸したらすぐ JAL アプリで NU815 の印 (「*」「!」) を見る。昼は 1F 空港食堂 (11:35 までに着席) か BLUE SKY の弁当か、機内で決めておく。'},[KUKO,BSKY],'#s02'],
+      [0,'11:15','那覇乗継 — 昼と運航判断',{c:'NU815 の印を確認 → 乗継カウンターで判断時刻を聞く。昼は空港食堂か売店。保安検査は 12:45 までに列へ。荷物はスルーなので受け取らない。'},[KUKO,BSKY,R3F],'#s02'],
+      [0,'12:45','保安検査 → RAC815 13:15 → 与論 13:55',{c:'Q400 は棚が浅いのでキャリーはゲートで預ける。酔い止めは 12:30 までに。欠航なら §13 ケース B: まず 1 人がスマホで那覇の宿を押さえる。'},[],'#s13'],
+      [0,'13:55','与論着 → プリシアへ (車 3 分)',{c:'先着組と合流。チェックイン 15:00 までは荷物を預けてビーチカフェか敷地散歩。台風の続報 (12:45 発表) を確認。'},[A('プリシア ビーチカフェ','チェックイン待ちの一服。兼母海岸が目の前'),A('兼母海岸','眺めるだけ。台風のうねりがあるので入らない')],'#s06'],
+      [0,'15:00','チェックイン後 — 買い出し',{r:'雨版が本線。車で茶花へ。有村酒造の直売 (〜17:00) で BBQ 用の島有泉 — 9/6 は日曜で休みなので今日買う。A コープ / トップで明日の飲み物・炭酸水・氷。',u:'晴れ間があっても海は眺めるだけ。先に茶花で有村酒造 (〜17:00・9/6 は休み) と A コープの買い出しを済ませ、18:43 の日没を西向きテラスで。'},{r:[ARIM,ACOP,EKI],u:[ARIM,ACOP,A('兼母海岸の西向きテラス','18:43 の日没')]},'#s07'],
+      [0,'17:30','シャワー・支度',{c:'17:45 に JL916 の座席指定が開く (48 時間前)。18:40 の足 (先着組の車 / 南陸運タクシー) を再確認。街灯が少ないのでライトを持つ。'},[],'#s07'],
+      [0,'18:40','移動 → 居酒屋ひょうきん',{c:'車 5 分・徒歩 30 分。日没 18:43。9 人ならタクシー 3 台 (1 台 4 人)。'},[HYO],'#s07'],
+      [0,'19:00','居酒屋ひょうきん (茶花)',{c:'海鮮と奄美黒ほろほろ鳥の刺しが看板。与論献奉が回ってきたら 1 巡で止める。帰りのタクシーは 21:30。'},[HYO],'#s09'],
+      [0,'21:30','帰宿 — 明日の判断の準備',{c:'21:45 の台風発表を確認。幹事は明朝 7 時に雨版 / 晴れ版を共有。グラスボート業者への電話は朝 7 時。'},[],'#s07'],
+      [1,'00:00','就寝',{c:'朝 7 時の空と海況で今日の版を決める。'},[],'#s07'],
+      [1,'07:00','朝食 — 今日の版を決める',{c:'7 時の空と海況で雨版 / 晴れ版を決める。グラスボート業者に「今日出るか」を電話。台風は那覇に最接近中で、出ない前提。'},[],'#s07'],
+      [1,'08:00','午前の部 1',{r:'急がず朝食。9:30 に赤崎鍾乳洞へ (ヘルメット・懐中電灯貸出)。濡れてもいい靴。',u:'07:45 大金久海岸へ (車 15 分)。08:30 グラスボートで百合ヶ浜 (干潮 8:49)。砂が出なくても浅瀬で星砂探し。'},{r:[AKAS,SCC],u:[OGN,UDO]},'#s07'],
+      [1,'10:30','午前の部 2',{r:'サザンクロスセンター。5F 展望室から雨の与論を見る。隣の与論城跡は小雨なら可。',u:'大金久海岸でシュノーケル。ラッシュガード・レギンス必須、ハブクラゲに注意。台風後は濁りを覚悟。'},{r:[SCC,JOU],u:[OGN,MINA]},'#s08'],
+      [1,'12:00','昼',{c:'鶏飯「ヨロンの味 たら」(要予約) か、もずくそば「蒼い珊瑚礁」。9 人なら電話してから向かう。'},[TARA,AOI,CHAB],'#s09'],
+      [1,'13:30','午後の部',{r:'与論民俗村。菊さん一家の案内とお茶請け、芭蕉布コースター織り体験。',u:'与論城跡 → サザンクロスセンター (展望室から沖縄本島)。'},{r:[MINZ,YAKI],u:[JOU,SCC]},'#s08'],
+      [1,'15:00','夕方まで',{r:'ゆんぬ・あーどぅる焼の窯元。雨脚が止んだら大金久へ「海の色だけ」。A コープで炭酸水・氷。',u:'ウドノスビーチか寺崎海岸で夕方まで。16:30 には上がって A コープで炭酸水・氷。'},{r:[YAKI,A('大金久海岸','眺めるだけ。ヨロンブルーは曇りでも出る'),ACOP],u:[UDO,TERA,ACOP]},'#s08'],
+      [1,'17:00','親戚宅 BBQ',{c:'手土産: マッカラン 12 年・島有泉・ヨロン黒牛か黒ほろほろ鳥。炭酸水と氷を忘れずに。屋根の有無は先に聞く。'},[],'#s09'],
+      [1,'21:00','夜 — 星と明日の支度',{c:'月が無い夜。晴れ間があれば南〜南西の空に天の川。21:45 の台風発表と RAC816 の印を確認。明朝 9:30 に荷物をフロントへ。'},[A('BBQ の庭 / プリシアの浜','街灯から離れて 5 分待つと星が増える')],'#s11'],
+      [2,'00:00','就寝',{c:'朝 7 時に RAC816 / JL916 の印を確認。'},[],'#s13'],
+      [2,'07:00','朝食・荷造り',{c:'9:30 までにフロントへ荷物。JAL アプリで RAC816・JL916 の印 (「*」「!」) を確認。奄美地方はまだ強風域の縁。'},[],'#s13'],
+      [2,'09:30','午前勝負 — 百合ヶ浜の再挑戦か写真',{r:'海が荒ければ茶花で土産とカフェ。ヨロン駅・茶花港で写真。未訪ならサザンクロス。',u:'前日行けなかったら大金久 → グラスボート。干潮 10:10 (54cm) は 3 日で一番低い。行けていれば皆田海岸かヨロン駅。'},{r:[EKI,CHAB,SCC],u:[OGN,MINA,EKI]},'#s07'],
+      [2,'11:30','昼と土産',{c:'茶花で軽く昼。土産は島でしか買えないものに絞る: 島有泉・きび酢・ピーナツ黒糖・ヨロンブルーサイダー。売店は小さいので 12:30 までに。'},[A('茶花の商店街','土産はここで'),A('与論空港 ブルースカイ','席は少ない。最後の買い足し')],'#s09'],
+      [2,'13:30','プリシアで荷物受け取り → 空港 13:40 集合',{c:'送迎で空港へ。RAC816 14:25。欠航なら §13 ケース C: 宿 → 便 → 会社 → 保険の順。'},[],'#s13'],
+      [2,'14:25','RAC816 → 那覇 (乗継 2h45)',{c:'那覇で 2 時間 45 分。先に夕食 (空港食堂か 3F)、土産の買い足し。保安検査は 17:15 までに。'},[KUKO,R3F,MIYA],'#s02'],
+      [2,'17:45','JL916 → 羽田 20:15',{c:'お疲れさま。羽田では手荷物受取 → 各自帰宅。写真の共有先を決めておく。'},[],'#s02'],
+      [2,'20:15','旅程終了',{c:'帰着。ガイドの更新はここまで。'},[],'#s02']
+    ];
+    var BASE=Date.UTC(2026,8,4,15,0,0); /* 2026-09-05 00:00 JST */
+    function slotMin(x){ var hm=x[1].split(':'); return x[0]*1440+(+hm[0])*60+(+hm[1]); }
+    function nowMin(){
+      var q=(location.search.match(/[?&]t=([^&]+)/)||[])[1];
+      if(q){ var m=decodeURIComponent(q).match(/(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d)/); if(m) return Math.floor((Date.UTC(+m[1],+m[2]-1,+m[3],+m[4]-9,+m[5])-BASE)/60000); }
+      return Math.floor((Date.now()-BASE)/60000);
+    }
+    var KEY='yoron-2026-09-mode', mode='rain';
+    try{ mode=localStorage.getItem(KEY)||'rain'; }catch(e){}
+    function txt(o){ return o.c||(mode==='sun'?(o.u||o.r):(o.r||o.u)); }
+    function spots(sp){ return Array.isArray(sp)?sp:(mode==='sun'?(sp.u||[]):(sp.r||[])); }
+    function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+    function hhmm(min){ var d=Math.floor(min/1440), m=min-d*1440; return '9/'+(5+d)+' '+('0'+Math.floor(m/60)).slice(-2)+':'+('0'+(m%60)).slice(-2); }
+    function render(){
+      var n=nowMin(), i=-1;
+      for(var k=0;k<P.length;k++){ if(slotMin(P[k])<=n) i=k; }
+      document.getElementById('now-clock').textContent=(n>=0&&n<3*1440)?hhmm(n).slice(4):'—';
+      document.querySelectorAll('.now .mode button').forEach(function(b){ b.classList.toggle('on', b.dataset.m===mode); });
+      var h='';
+      if(i<0){ var f=P[0]; h='<div class="grid"><div class="cell cur"><div class="k">旅程はまだ始まっていません</div><div class="h">'+esc(f[2])+'</div><p>'+esc(txt(f[3]))+'</p></div><div class="cell nxt"><div class="k">初日</div><div class="h">9/5 (土) 羽田 08:40 発</div><p>台風と便の状況は上のホットトピックを見る。</p></div></div>'; }
+      else{
+        var c=P[i], nx=P[i+1];
+        h='<div class="grid"><div class="cell cur"><div class="k">いま ('+esc(hhmm(slotMin(c)))+'〜)</div><div class="h">'+esc(c[2])+'</div><p>'+esc(txt(c[3]))+' <a href="'+c[5]+'">詳しく →</a></p></div>';
+        h+='<div class="cell nxt"><div class="k">'+(nx?'次 ('+esc(hhmm(slotMin(nx)))+'〜)':'この先')+'</div><div class="h">'+esc(nx?nx[2]:'帰宅')+'</div><p>'+esc(nx?txt(nx[3]):'旅は終わり。写真の共有と経費の精算を。')+'</p></div></div>';
+        var sp=spots(c[4]); if(!sp.length&&nx) sp=spots(nx[4]);
+        if(sp.length){ h+='<div class="now-sp"><div class="k">おすすめスポット ('+(mode==='sun'?'晴れ版':'雨版')+')</div><ul>'; sp.forEach(function(x){ h+='<li><b>'+esc(x[0])+'</b> — '+esc(x[1])+'</li>'; }); h+='</ul></div>'; }
+      }
+      body.innerHTML=h;
+    }
+    window.setNowMode=function(m){ mode=m; try{ localStorage.setItem(KEY,m); }catch(e){} render(); };
+    render(); setInterval(render,60000);
   })();
 </script>
 </body>
