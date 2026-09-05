@@ -40,6 +40,11 @@
   .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:500;}
   .updated{display:inline-block; font-family:var(--mono); font-size:12.5px; color:var(--ink); background:color-mix(in srgb,var(--accent) 10%,var(--bg)); border-left:3px solid var(--accent); padding:6px 12px; margin:.2em 0 .6em; line-height:1.6;}
   .updated b{color:var(--accent);}
+  .hot{border:2px solid var(--accent); border-radius:6px; padding:12px 16px 8px; margin:.4em 0 1.2em; background:color-mix(in srgb,var(--accent) 6%,var(--bg));}
+  .hot .t{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:6px;}
+  .hot ol{margin:0; padding-left:1.4em;}
+  .hot li{margin:0 0 .5em; line-height:1.6;}
+  .hot li b{color:var(--ink);}
   .sub{color:var(--muted); font-size:clamp(15px,2.1vw,19px); line-height:1.75; margin:0 0 1.2em; max-width:62ch;}
   .reader{font-size:.92rem; color:var(--muted); border-top:1px solid var(--line2); border-bottom:1px solid var(--line2); padding:10px 0; margin:1.2em 0 1.6em; font-family:var(--mono); line-height:1.7;}
 
@@ -215,7 +220,15 @@
 
   <div class="eyebrow">Yoron Island · 2026-09-05 → 09-07 · 9 名 (大人 7・子ども 2)</div>
   <h1>与論島ガイドブック<br><span style="font-size:.62em;font-weight:700;color:var(--accent)">台風・潮・島の歩き方</span></h1>
-  <div class="updated"><b>最終更新 2026-09-05 (土) 09:15 JST</b> — 台風24号は気象庁 06:45 発表、与論の天気は 9/5 朝の予報、JAL からの遅延・欠航通知は 09:15 時点で未着。次の再確認は那覇着 11:15 (NU815 の印) と毎朝 7 時。</div>
+  <div class="updated"><b>最終更新 2026-09-05 (土) 09:35 JST</b> — 台風24号は気象庁 06:45 発表 (次は 09:45)、与論の天気は 9/5 朝の予報、JAL からの遅延・欠航通知は 09:35 時点で未着。9/7 の帰着まで定期的に更新し、動きがあれば下の「いまのホットトピック」に載せる。</div>
+  <div class="hot" id="hot">
+    <div class="t">いまのホットトピック — 09:35 時点</div>
+    <ol>
+      <li><b>今日の山は那覇 13:15 発 RAC815。</b>台風は久米島の北 200km を南南西へ進み、昼過ぎは那覇・与論とも強風域の中。JAL からの欠航・遅延通知はまだ無い。那覇着 11:15 後に JAL アプリで NU815 の印 (「*」「!」) を見て、乗継カウンターで判断時刻を聞く → <a href="#s01">§01</a></li>
+      <li><b>船はすでに止まっている。</b>マリックスラインは 9/4・9/5 の那覇発を欠航。那覇で足止めなら宿を先に押さえて 9/6 便へ振替 → <a href="#s13">§13 ケース B</a></li>
+      <li><b>9/6 朝のグラスボートは出ない前提で。</b>台風が那覇に最接近するのが 9/6 朝〜昼で、与論は雷を伴う雨・強風・高波の予報。雨版 (鍾乳洞・サザンクロス・民俗村) を本線に → <a href="#s07">§07</a></li>
+    </ol>
+  </div>
   <p class="sub">羽田→那覇→与論の 2 泊 3 日。Gmail の予約 (JAL・Trip.com) と観光協会・気象・潮汐の一次情報から組んだ、この旅程専用の手帳。</p>
   <div class="reader">読者: {{PV:p01|9/5〜9/7 に与論島へ行く 9 人}}。飛行機と宿は押さえてあり、島は初めて。読み終えると「台風で飛ぶか飛ばないかを自分で判定」「潮を見て百合ヶ浜に賭けるか決める」「9 人での移動・食事・BBQ の段取り」ができる。<br>通読 約 50 分 (約 2.4 万字)。急ぐなら §01 → §02 → §07 → §12 → §14 だけで旅は回る。</div>
 
