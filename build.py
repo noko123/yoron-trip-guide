@@ -3,8 +3,11 @@
   出力: docs/index.html (公開版・GitHub Pages)  /  dist/yoron-trip-guide-2026-09.html (自分用・private.json がある時だけ)
   マーカー: {{PV:key|公開テキスト}} … private.json[key] があれば自分用版でそちらに置換。公開版は常に公開テキスト。
            {{IMG:slug}} / {{CREDIT:slug}} / {{CREDITS_LIST}} … use/<slug>.jpg と manifest.json から base64 と帰属を生成
+           {{BUILT}} … ビルド時刻 (JST)。冒頭の「最終更新」と奥付に入る (Actions でビルドされるので公開時刻になる)
 """
 import json, re, html, os, base64, sys
+from datetime import datetime, timezone, timedelta
+BUILT=datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d (%a) %H:%M JST').replace('(Sat)','(土)').replace('(Sun)','(日)').replace('(Mon)','(月)').replace('(Tue)','(火)').replace('(Wed)','(水)').replace('(Thu)','(木)').replace('(Fri)','(金)')
 H=os.path.dirname(os.path.abspath(__file__)); os.chdir(H)
 man=json.load(open('manifest.json',encoding='utf-8'))
 tpl=open('yoron-guide.template.html',encoding='utf-8').read()
@@ -13,7 +16,7 @@ def strip(s): return html.unescape(re.sub(r'<[^>]+>','',s or '')).strip()
 lic_url={'CC BY-SA 4.0':'https://creativecommons.org/licenses/by-sa/4.0/','CC BY-SA 3.0':'https://creativecommons.org/licenses/by-sa/3.0/','CC BY-SA 2.0':'https://creativecommons.org/licenses/by-sa/2.0/','CC BY 4.0':'https://creativecommons.org/licenses/by/4.0/','CC BY 3.0':'https://creativecommons.org/licenses/by/3.0/','CC BY 2.0':'https://creativecommons.org/licenses/by/2.0/','CC0':'https://creativecommons.org/publicdomain/zero/1.0/','Public domain':'https://commons.wikimedia.org/wiki/Commons:Licensing','Attribution':'https://commons.wikimedia.org/wiki/Commons:Licensing'}
 PV=re.compile(r'\{\{PV:([a-z0-9_]+)\|(.*?)\}\}',re.S)
 def build(public):
-    src=PV.sub(lambda m: m.group(2) if (public or priv is None) else priv.get(m.group(1),m.group(2)), tpl)
+    src=PV.sub(lambda m: m.group(2) if (public or priv is None) else priv.get(m.group(1),m.group(2)), tpl).replace('{{BUILT}}',BUILT)
     used=sorted(set(re.findall(r'\{\{IMG:([A-Za-z0-9_\-]+)\}\}',src)))
     items=[]; missing=[]
     for s in used:
